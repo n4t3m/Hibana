@@ -3,12 +3,10 @@ package com.natem135.hibana.modules;
 import java.util.ArrayList;
 import java.util.Objects;
 
-import com.natem135.hibana.Hibana;
 import com.natem135.hibana.interfaces.ISimpleOption;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.option.GameOptions;
 import net.minecraft.block.Block;
 import net.minecraft.client.option.SimpleOption;
 import net.minecraft.sound.SoundCategory;
@@ -20,8 +18,7 @@ import static com.natem135.hibana.Hibana.XRAY_DISABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.LOGGER;
 
 public class XrayModule extends ToggleableModule {
-    public static ArrayList<Block> blocks = new ArrayList<Block>();
-    private double starting_gamma = 0.0;
+    public static ArrayList<Block> blocks = new ArrayList<>();
 
     public XrayModule() {
         super("Xray", GLFW.GLFW_KEY_X);
@@ -59,7 +56,7 @@ public class XrayModule extends ToggleableModule {
         client.worldRenderer.reload();
     }
 
-    public void onTick() { };
+    public void onTick() { }
 
     public static boolean shouldRender(Block block) {
         return blocks.contains(block);

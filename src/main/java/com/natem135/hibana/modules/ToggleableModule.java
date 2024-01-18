@@ -52,7 +52,7 @@ public abstract class ToggleableModule {
     }
 
     abstract void onTick();
-    void onEnable() {};
-    void onDisable() {};
+    void onEnable() {}
+    void onDisable() {}
 
 }

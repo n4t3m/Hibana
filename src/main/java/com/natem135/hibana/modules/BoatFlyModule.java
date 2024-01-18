@@ -74,7 +74,6 @@ public class BoatFlyModule extends ToggleableModule {
                     yVelocity = 0.5;
                 }
                 else {
-                    yVelocity = player.getVelocity().getY();
                     yVelocity = 0.04;
                 }
                 // LOGGER.info(String.format("%.2f", yVelocity));

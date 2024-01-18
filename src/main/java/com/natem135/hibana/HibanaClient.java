@@ -1,6 +1,5 @@
 package com.natem135.hibana;
 
-import com.mojang.authlib.minecraft.client.MinecraftClient;
 import com.natem135.hibana.modules.PlayerFlyModule;
 import com.natem135.hibana.modules.XrayModule;
 import net.fabricmc.api.ClientModInitializer;

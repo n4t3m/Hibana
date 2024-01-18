@@ -2,8 +2,6 @@ package com.natem135.hibana.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.Vec3d;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -14,7 +12,7 @@ public class MinecraftClientMixin {
 
     @Inject(at = @At("HEAD"), method = "tick")
     private void tick(CallbackInfo ci){
-        ClientPlayerEntity player = MinecraftClient.getInstance().player;
+//        ClientPlayerEntity player = MinecraftClient.getInstance().player;
 //        try{
 //            if(player != null && player.hasVehicle()){
 //                Entity vehicle = player.getVehicle();

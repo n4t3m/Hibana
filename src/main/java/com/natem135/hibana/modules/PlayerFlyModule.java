@@ -3,7 +3,6 @@ package com.natem135.hibana.modules;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.GameOptions;
-import net.minecraft.entity.Entity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -54,9 +53,9 @@ public class PlayerFlyModule extends ToggleableModule {
                 boolean crouchPressed = gameOptions.sneakKey.isPressed();
 
                 boolean forwardPressed = gameOptions.forwardKey.isPressed();
-                boolean leftPressed = gameOptions.leftKey.isPressed();
-                boolean rightPressed = gameOptions.rightKey.isPressed();
-                boolean backPressed = gameOptions.backKey.isPressed();
+//                boolean leftPressed = gameOptions.leftKey.isPressed();
+//                boolean rightPressed = gameOptions.rightKey.isPressed();
+//                boolean backPressed = gameOptions.backKey.isPressed();
 
                 LOGGER.info(String.format("here: %b", gameOptions.sprintKey.isPressed()));
 
@@ -88,7 +87,6 @@ public class PlayerFlyModule extends ToggleableModule {
                     yVelocity = -0.5;
                 }
                 else {
-                    yVelocity = player.getVelocity().getY();
                     yVelocity = 0;
                 }
                 // LOGGER.info(String.format("%.2f", yVelocity));
