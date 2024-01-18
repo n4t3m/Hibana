@@ -1,0 +1,38 @@
+{
+  "sample_sound": {
+    "sounds": [
+      "hibana:sample_sound"
+    ]
+  },
+  "boat_fly_enabled": {
+    "sounds": [
+      "hibana:boat_fly_enabled"
+    ]
+  },
+  "boat_fly_disabled": {
+    "sounds": [
+      "hibana:boat_fly_disabled"
+    ]
+  },
+  "xray_enabled": {
+    "sounds": [
+      "hibana:xray_enabled"
+    ]
+  },
+  "xray_disabled": {
+    "sounds": [
+      "hibana:xray_disabled"
+    ]
+  },
+  "player_fly_enabled": {
+    "sounds": [
+      "hibana:player_fly_enabled"
+    ]
+  },
+  "player_fly_disabled": {
+    "sounds": [
+      "hibana:player_fly_disabled"
+    ]
+  }
+}
+

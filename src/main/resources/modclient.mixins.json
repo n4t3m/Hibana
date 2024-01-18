@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "com.natem135.hibana.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+		"ExampleMixin",
+		"MinecraftClientMixin",
+		"BlockMixin",
+		"SimpleOptionMixin",
+		"AbstractBlockMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

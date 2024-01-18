@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "hibana",
+	"version": "${version}",
+	"name": "Hibana",
+	"description": "Demo for Cyber@UCR",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/modclient/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.natem135.hibana.Hibana"
+		],
+		"client": [
+			"com.natem135.hibana.HibanaClient"
+		],
+		"fabric-datagen": [
+			"com.natem135.hibana.HibanaDataGenerator"
+		]
+	},
+	"mixins": [
+		"modclient.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.5",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
