@@ -33,6 +33,16 @@
     "sounds": [
       "hibana:player_fly_disabled"
     ]
+  },
+  "fullbright_enabled": {
+    "sounds": [
+      "hibana:fullbright_enabled"
+    ]
+  },
+  "fullbright_disabled_placeholder": {
+    "sounds": [
+      "hibana:fullbright_disabled_placeholder"
+    ]
   }
 }
 

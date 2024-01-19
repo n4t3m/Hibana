@@ -10,8 +10,8 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.world.World;
 import org.lwjgl.glfw.GLFW;
 
-import static com.natem135.hibana.Hibana.XRAY_ENABLED_SOUND_EVENT;
-import static com.natem135.hibana.Hibana.XRAY_DISABLED_SOUND_EVENT;
+import static com.natem135.hibana.Hibana.FULLBRIGHT_ENABLED_SOUND_EVENT;
+import static com.natem135.hibana.Hibana.FULLBRIGHT_DISABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.LOGGER;
 
 public class FullBrightModule extends ToggleableModule {
@@ -24,7 +24,7 @@ public class FullBrightModule extends ToggleableModule {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();
-        world.playSound(MinecraftClient.getInstance().player, player.getX(), player.getY(), player.getZ(), XRAY_ENABLED_SOUND_EVENT, SoundCategory.MASTER);
+        world.playSound(MinecraftClient.getInstance().player, player.getX(), player.getY(), player.getZ(), FULLBRIGHT_ENABLED_SOUND_EVENT, SoundCategory.MASTER);
         // Max Gamma
         MinecraftClient client = MinecraftClient.getInstance();
         ISimpleOption<Double> gamma = (ISimpleOption<Double>)(Object)client.options.getGamma();
@@ -36,7 +36,7 @@ public class FullBrightModule extends ToggleableModule {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();
-        world.playSound(MinecraftClient.getInstance().player, player.getX(), player.getY(), player.getZ(), XRAY_DISABLED_SOUND_EVENT, SoundCategory.MASTER);
+        world.playSound(MinecraftClient.getInstance().player, player.getX(), player.getY(), player.getZ(), FULLBRIGHT_DISABLED_SOUND_EVENT, SoundCategory.MASTER);
         // Reset Gamma
         MinecraftClient client = MinecraftClient.getInstance();
         SimpleOption<Double> gamma = client.options.getGamma();
