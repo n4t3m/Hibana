@@ -2,17 +2,15 @@ package com.natem135.hibana.modules;
 
 import java.util.Objects;
 
-import com.natem135.hibana.interfaces.ISimpleOption;
+import com.natem135.hibana.util.GammaUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.client.option.SimpleOption;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.world.World;
 import org.lwjgl.glfw.GLFW;
 
 import static com.natem135.hibana.Hibana.FULLBRIGHT_ENABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.FULLBRIGHT_DISABLED_SOUND_EVENT;
-import static com.natem135.hibana.Hibana.LOGGER;
 
 public class FullBrightModule extends ToggleableModule {
 
@@ -25,11 +23,9 @@ public class FullBrightModule extends ToggleableModule {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();
         world.playSound(MinecraftClient.getInstance().player, player.getX(), player.getY(), player.getZ(), FULLBRIGHT_ENABLED_SOUND_EVENT, SoundCategory.MASTER);
-        // Max Gamma
+        // Maximize Gamma
         MinecraftClient client = MinecraftClient.getInstance();
-        ISimpleOption<Double> gamma = (ISimpleOption<Double>)(Object)client.options.getGamma();
-        gamma.forceSetValue(1000000000.0);
-        LOGGER.info(String.format("Set Gamma To %.2f", client.options.getGamma().getValue()));
+        GammaUtils.setMaxGamma(client);
     }
 
     @Override void onDisable() {
@@ -39,9 +35,7 @@ public class FullBrightModule extends ToggleableModule {
         world.playSound(MinecraftClient.getInstance().player, player.getX(), player.getY(), player.getZ(), FULLBRIGHT_DISABLED_SOUND_EVENT, SoundCategory.MASTER);
         // Reset Gamma
         MinecraftClient client = MinecraftClient.getInstance();
-        SimpleOption<Double> gamma = client.options.getGamma();
-        gamma.setValue(0.5);
-        LOGGER.info(String.format("Set Gamma To %.2f", client.options.getGamma().getValue()));
+        GammaUtils.resetToDefaultGamma(client);
     }
 
     public void onTick() { }
