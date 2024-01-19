@@ -1,10 +1,7 @@
 package com.natem135.hibana;
 
-import com.natem135.hibana.modules.PlayerFlyModule;
-import com.natem135.hibana.modules.XrayModule;
+import com.natem135.hibana.modules.*;
 import net.fabricmc.api.ClientModInitializer;
-import com.natem135.hibana.modules.ToggleableModule;
-import com.natem135.hibana.modules.BoatFlyModule;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 
@@ -15,11 +12,13 @@ public class HibanaClient implements ClientModInitializer {
     public static final BoatFlyModule boatFlyModule = new BoatFlyModule();
     public static final XrayModule xrayModule = new XrayModule();
     public static final PlayerFlyModule playerFlyModule = new PlayerFlyModule();
+    public static final FullBrightModule fullBrightModule = new FullBrightModule();
 
     List<ToggleableModule> mods = Arrays.asList(
             boatFlyModule,
             xrayModule,
-            playerFlyModule
+            playerFlyModule,
+            fullBrightModule
     );
 
     @Override
