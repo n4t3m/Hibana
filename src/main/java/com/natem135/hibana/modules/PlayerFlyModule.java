@@ -10,7 +10,6 @@ import org.lwjgl.glfw.GLFW;
 
 import static com.natem135.hibana.Hibana.PLAYER_FLY_ENABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.PLAYER_FLY_DISABLED_SOUND_EVENT;
-import static com.natem135.hibana.Hibana.LOGGER;
 import java.lang.Math;
 
 public class PlayerFlyModule extends ToggleableModule {
@@ -57,8 +56,6 @@ public class PlayerFlyModule extends ToggleableModule {
 //                boolean rightPressed = gameOptions.rightKey.isPressed();
 //                boolean backPressed = gameOptions.backKey.isPressed();
 
-                LOGGER.info(String.format("here: %b", gameOptions.sprintKey.isPressed()));
-
                 // X and Z Velocity
                 if(forwardPressed && sprintPressed) {
                     xVelocity = Math.min(this.MAX_SPEED, velocity.getX()*1.25);
@@ -75,7 +72,6 @@ public class PlayerFlyModule extends ToggleableModule {
                     reduced_last_tick = false;
                 }
                 else if(tick_timer==0) {
-                    LOGGER.info("REDUCTING");
                     yVelocity = -0.2;
                     reduced_last_tick = true;
                     tick_timer = 40;
@@ -89,9 +85,6 @@ public class PlayerFlyModule extends ToggleableModule {
                 else {
                     yVelocity = 0;
                 }
-                // LOGGER.info(String.format("%.2f", yVelocity));
-                LOGGER.info(String.format("%d ticks", tick_timer));
-                LOGGER.info(String.format("%.2f %.2f %.2f", xVelocity, yVelocity, zVelocity));
                 player.setVelocity(new Vec3d(xVelocity, yVelocity, zVelocity));
             }
         }
