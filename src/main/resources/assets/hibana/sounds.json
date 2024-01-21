@@ -1,9 +1,4 @@
 {
-  "sample_sound": {
-    "sounds": [
-      "hibana:sample_sound"
-    ]
-  },
   "boat_fly_enabled": {
     "sounds": [
       "hibana:boat_fly_enabled"
