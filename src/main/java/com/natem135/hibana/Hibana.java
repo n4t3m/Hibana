@@ -12,8 +12,6 @@ import org.slf4j.LoggerFactory;
 public class Hibana implements ModInitializer {
 	public static final String MOD_ID = "hibana";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-	public static final Identifier MY_SOUND_ID = new Identifier("hibana:sample_sound");
-	public static SoundEvent SAMPLE_SOUND_EVENT = SoundEvent.of(MY_SOUND_ID);
 	public static final Identifier BOAT_FLY_ID = new Identifier("hibana:boat_fly_enabled");
 	public static SoundEvent BOAT_FLY_ENABLED_EVENT = SoundEvent.of(BOAT_FLY_ID);
 	public static final Identifier BOAT_FLY_DISABLE_ID = new Identifier("hibana:boat_fly_disabled");
@@ -37,7 +35,6 @@ public class Hibana implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		Registry.register(Registries.SOUND_EVENT, MY_SOUND_ID, SAMPLE_SOUND_EVENT);
 		Registry.register(Registries.SOUND_EVENT, BOAT_FLY_ID, BOAT_FLY_ENABLED_EVENT);
 		Registry.register(Registries.SOUND_EVENT, BOAT_FLY_DISABLE_ID, BOAT_FLY_DISABLED_EVENT);
 

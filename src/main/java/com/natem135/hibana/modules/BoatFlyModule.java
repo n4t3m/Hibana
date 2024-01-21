@@ -46,13 +46,10 @@ public class BoatFlyModule extends ToggleableModule {
 
                 GameOptions gameOptions = MinecraftClient.getInstance().options;
 
-                LOGGER.info(String.format("here: %b", gameOptions.sprintKey.isPressed()));
-
                 // X Velocity
                 if(player.isSprinting() || gameOptions.sprintKey.isPressed()) {
                     xVelocity = velocity.getX()*1.1;
                     zVelocity = velocity.getZ()*1.1;
-                    // LOGGER.info(String.format("SPRINTING TRUE %.2f %.2f", xVelocity, zVelocity));
                 }
                 else {
                     xVelocity = velocity.getX();
@@ -65,7 +62,6 @@ public class BoatFlyModule extends ToggleableModule {
                     reduced_last_tick = false;
                 }
                 else if(tick_timer==0) {
-                    LOGGER.info("REDUCTING");
                     yVelocity = -0.2;
                     reduced_last_tick = true;
                     tick_timer = 40;
@@ -76,8 +72,6 @@ public class BoatFlyModule extends ToggleableModule {
                 else {
                     yVelocity = 0.04;
                 }
-                // LOGGER.info(String.format("%.2f", yVelocity));
-                LOGGER.info(String.format("%d ticks", tick_timer));
                 vehicle.setVelocity(new Vec3d(xVelocity, yVelocity, zVelocity));
             }
         }
