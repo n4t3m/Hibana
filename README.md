@@ -7,11 +7,14 @@ This project was originally created for a Cyber@UCR general meeting. I'm going t
 ## Current Features:
 - XRay
 - Player Fly
-- Entity Fly
+- Boat Fly
+- Fullbright
 - Specialized Voice Acting for each "Module"
 
 ## Planned Features:
-- Fullbright
 - AutoFarm
 - In-Game Menu
+- Discord RPC
+- Kill Aura
+- Scaffold
 

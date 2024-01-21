@@ -26,6 +26,13 @@ public class Hibana implements ModInitializer {
 	public static SoundEvent PLAYER_FLY_ENABLED_SOUND_EVENT = SoundEvent.of(PLAYER_FLY_ENABLED_IDENTIFIER);
 	public static final Identifier PLAYER_FLY_DISABLED_IDENTIFIER = new Identifier("hibana:player_fly_disabled");
 	public static SoundEvent PLAYER_FLY_DISABLED_SOUND_EVENT = SoundEvent.of(PLAYER_FLY_DISABLED_IDENTIFIER);
+	public static final Identifier FULLBRIGHT_ENABLED_IDENTIFIER = new Identifier("hibana:fullbright_enabled");
+	public static SoundEvent FULLBRIGHT_ENABLED_SOUND_EVENT = SoundEvent.of(FULLBRIGHT_ENABLED_IDENTIFIER);
+	// todo (natem135): Add proper sound once recorded and available.
+	public static final Identifier FULLBRIGHT_DISABLED_IDENTIFIER = new Identifier("hibana:fullbright_disabled");
+	public static SoundEvent FULLBRIGHT_DISABLED_SOUND_EVENT = SoundEvent.of(FULLBRIGHT_DISABLED_IDENTIFIER);
+
+
 
 
 	@Override
