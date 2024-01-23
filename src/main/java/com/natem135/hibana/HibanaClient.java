@@ -1,5 +1,7 @@
 package com.natem135.hibana;
 
+import com.natem135.hibana.event.Listener;
+import com.natem135.hibana.event.SendPacketEvent;
 import com.natem135.hibana.modules.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -7,6 +9,7 @@ import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class HibanaClient implements ClientModInitializer {
     public static final BoatFlyModule boatFlyModule = new BoatFlyModule();
@@ -28,5 +31,8 @@ public class HibanaClient implements ClientModInitializer {
             KeyBindingHelper.registerKeyBinding(mod.keybind);
             ClientTickEvents.END_CLIENT_TICK.register(mod::tick);
         }
+        Consumer<SendPacketEvent> test = SendPacketEvent::printPacketType;
+        Listener _send_listener = new Listener(test);
+        Hibana.getEventManager().addListener(SendPacketEvent.class, _send_listener);
     }
 }
