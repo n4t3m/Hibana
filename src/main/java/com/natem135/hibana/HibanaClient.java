@@ -13,12 +13,14 @@ public class HibanaClient implements ClientModInitializer {
     public static final XrayModule xrayModule = new XrayModule();
     public static final PlayerFlyModule playerFlyModule = new PlayerFlyModule();
     public static final FullBrightModule fullBrightModule = new FullBrightModule();
+    public static final AutoFishSoundModule autoFishSoundModule = new AutoFishSoundModule();
 
     List<ToggleableModule> mods = Arrays.asList(
             boatFlyModule,
             xrayModule,
             playerFlyModule,
-            fullBrightModule
+            fullBrightModule,
+            autoFishSoundModule
     );
 
     @Override

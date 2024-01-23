@@ -1,5 +1,6 @@
 package com.natem135.hibana;
 
+import com.natem135.hibana.event.EventManager;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.registry.Registries;
@@ -30,8 +31,11 @@ public class Hibana implements ModInitializer {
 	public static final Identifier FULLBRIGHT_DISABLED_IDENTIFIER = new Identifier("hibana:fullbright_disabled");
 	public static SoundEvent FULLBRIGHT_DISABLED_SOUND_EVENT = SoundEvent.of(FULLBRIGHT_DISABLED_IDENTIFIER);
 
+	private static final EventManager eventManager = new EventManager();
 
-
+	public static EventManager getEventManager() {
+		return eventManager;
+	}
 
 	@Override
 	public void onInitialize() {
