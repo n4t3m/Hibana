@@ -15,7 +15,7 @@ public class AutoFishEntityModule extends ToggleableModule {
     Consumer<CaughtFishEvent> onRecv = AutoFishEntityModule::onFishCaught;
     Listener recvPacketListener = new Listener(onRecv);
 
-    private static int tick_timer = 20;
+    private static int tick_timer = 0;
     private static boolean rod_cool_down = false;
 
     public AutoFishEntityModule() {
