@@ -15,7 +15,7 @@ public class AutoRespawnModule extends ToggleableModule {
     Listener onClientPlayerDeathListener = new Listener(playerDeathConsumer);
 
     public AutoRespawnModule() {
-        super("AutoRespawn", GLFW.GLFW_KEY_C);
+        super("AutoRespawn", GLFW.GLFW_KEY_BACKSLASH);
     }
 
     @Override void onEnable() {
