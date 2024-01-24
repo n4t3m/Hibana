@@ -4,7 +4,7 @@ A simple WIP hacked client created using the Fabric API.
 
 This project was originally created for a Cyber@UCR general meeting. I'm going to continue making this because it's fun to "reverse engineer" how Minecraft works and make these modifications.
 
-Current Client Version: `0.1.0`
+Current Client Version: `0.1.1`
 
 Current Supported MC Version: `1.20.4`
 
@@ -14,7 +14,8 @@ Current Supported MC Version: `1.20.4`
 - Boat Fly
 - Fullbright
 - AutoFish (Sound-Based)
-- Specialized Voice Acting for each "Module"
+- AutoRespawn
+- Specialized Voice Acting for a few modules
 
 ## Planned Features (I think these would be fun to implement):
 - AutoFarm
