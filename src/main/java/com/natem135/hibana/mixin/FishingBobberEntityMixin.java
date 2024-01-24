@@ -1,6 +1,7 @@
 package com.natem135.hibana.mixin;
 
 import com.natem135.hibana.Hibana;
+import com.natem135.hibana.event.CaughtFishEvent;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.projectile.FishingBobberEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,6 +18,9 @@ public class FishingBobberEntityMixin {
 
     @Inject(method="onTrackedDataSet", at=@At("TAIL"))
     private void onTrackedDataSetInject(TrackedData<?> data, CallbackInfo ci) {
-        Hibana.LOGGER.info(String.format("caughtFish: %b", caughtFish));
+        if(caughtFish) {
+            CaughtFishEvent event = new CaughtFishEvent();
+            Hibana.getEventManager().notifyListeners(event);
+        }
     }
 }

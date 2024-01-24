@@ -15,6 +15,7 @@ public class HibanaClient implements ClientModInitializer {
     public static final FullBrightModule fullBrightModule = new FullBrightModule();
     public static final AutoFishSoundModule autoFishSoundModule = new AutoFishSoundModule();
     public  static final AutoRespawnModule autoRespawnModule = new AutoRespawnModule();
+    public  static final AutoFishEntityModule autoFishEntityModule = new AutoFishEntityModule();
 
     List<ToggleableModule> mods = Arrays.asList(
             boatFlyModule,
@@ -22,7 +23,8 @@ public class HibanaClient implements ClientModInitializer {
             playerFlyModule,
             fullBrightModule,
             autoFishSoundModule,
-            autoRespawnModule
+            autoRespawnModule,
+            autoFishEntityModule
     );
 
     @Override
