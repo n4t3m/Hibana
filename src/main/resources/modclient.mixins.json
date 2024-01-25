@@ -9,7 +9,8 @@
 		"SimpleOptionMixin",
 		"AbstractBlockMixin",
 		"ClientConnectionMixin",
-		"ClientPlayNetworkHandlerMixin"
+		"ClientPlayNetworkHandlerMixin",
+		"FishingBobberEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
