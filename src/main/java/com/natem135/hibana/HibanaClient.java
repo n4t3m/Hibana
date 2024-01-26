@@ -30,6 +30,32 @@ public class HibanaClient implements ClientModInitializer {
             autoFishEntityModule
     );
 
+    private static final String[] colorCodeMap = {
+            "§c", // Red
+            "§6", // Gold (Orange Substitute)
+            "§6", // Yellow
+            "§2", // Dark Green
+            "§9", // Blue
+            "§d", // Light Purple
+            "§5" // Purple
+    };
+
+    public static String generateRainbowString(String input) {
+        StringBuilder rainbowString = new StringBuilder();
+
+        for (int i = 0; i < input.length(); i++) {
+            char currentChar = input.charAt(i);
+            double percentage = (double) i / (input.length() - 1);
+            int colorIndex = (int) Math.round(percentage * (colorCodeMap.length - 1));
+            String colorCode = colorCodeMap[colorIndex];
+
+            rainbowString.append(colorCode).append(currentChar);
+        }
+
+        return rainbowString.toString();
+    }
+
+
     @Override
     public void onInitializeClient() {
         for(ToggleableModule mod : mods) {
@@ -43,11 +69,11 @@ public class HibanaClient implements ClientModInitializer {
 
     private static void render(DrawContext drawContext, float v) {
         MinecraftClient client = MinecraftClient.getInstance();
-        // drawContext.drawText(client.textRenderer, "\"§cT§6e§6s§2t§9W§do§5rd\"", 0, 10, 16777215, true);
+        // drawContext.drawText(client.textRenderer, "§cT§6e§6s§2t§9W§do§5rd", 0, 10, 16777215, true);
         int enabled_modules = 0;
         for(ToggleableModule module : HibanaClient.mods) {
             if(module.module_enabled) {
-                drawContext.drawText(client.textRenderer, module.module_name, 0, 10+(enabled_modules*10), 16777215, true);
+                drawContext.drawText(client.textRenderer, generateRainbowString(module.module_name), 0, 10+(enabled_modules*10), 16777215, true);
                 enabled_modules++;
             }
         }
