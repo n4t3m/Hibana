@@ -1,5 +1,6 @@
-package com.natem135.hibana.modules;
+package com.natem135.hibana.modules.movement;
 
+import com.natem135.hibana.modules.ToggleableModule;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.GameOptions;

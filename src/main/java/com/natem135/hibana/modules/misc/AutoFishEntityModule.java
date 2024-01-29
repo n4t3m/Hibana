@@ -1,8 +1,9 @@
-package com.natem135.hibana.modules;
+package com.natem135.hibana.modules.misc;
 
 import com.natem135.hibana.Hibana;
 import com.natem135.hibana.event.CaughtFishEvent;
 import com.natem135.hibana.event.Listener;
+import com.natem135.hibana.modules.ToggleableModule;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.util.Hand;

@@ -1,5 +1,11 @@
 package com.natem135.hibana.modules;
 
+import com.natem135.hibana.modules.misc.AutoFishEntityModule;
+import com.natem135.hibana.modules.misc.AutoFishSoundModule;
+import com.natem135.hibana.modules.misc.AutoRespawnModule;
+import com.natem135.hibana.modules.movement.BoatFlyModule;
+import com.natem135.hibana.modules.movement.PlayerFlyModule;
+import com.natem135.hibana.modules.render.FullBrightModule;
 import com.natem135.hibana.modules.render.XrayModule;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;

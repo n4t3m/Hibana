@@ -1,7 +1,8 @@
-package com.natem135.hibana.modules;
+package com.natem135.hibana.modules.render;
 
 import java.util.Objects;
 
+import com.natem135.hibana.modules.ToggleableModule;
 import com.natem135.hibana.util.GammaUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
