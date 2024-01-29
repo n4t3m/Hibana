@@ -73,7 +73,7 @@ public class HibanaClient implements ClientModInitializer {
         int enabled_modules = 0;
         for(ToggleableModule module : HibanaClient.mods) {
             if(module.module_enabled) {
-                drawContext.drawText(client.textRenderer, generateRainbowString(module.module_name), 0, 10+(enabled_modules*10), 16777215, true);
+                drawContext.drawText(client.textRenderer, generateRainbowString(module.module_name), 3, 5+(enabled_modules*10), 16777215, true);
                 enabled_modules++;
             }
         }
