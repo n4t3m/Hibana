@@ -30,6 +30,10 @@ public abstract class ToggleableModule {
         }
     }
 
+    public String getModuleName() {
+        return this.module_name;
+    }
+
     public void toggle() {
         if(module_enabled) {
             this.disable();
