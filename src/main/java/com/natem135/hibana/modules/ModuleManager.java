@@ -30,7 +30,7 @@ public class ModuleManager {
             "§d", // Light Purple
             "§5" // Purple
     };
-    public static List<ToggleableModule> mods = Arrays.asList(
+    public static List<Module> mods = Arrays.asList(
             boatFlyModule,
             xrayModule,
             playerFlyModule,
@@ -58,7 +58,7 @@ public class ModuleManager {
     public static void renderEnabledModList(DrawContext drawContext, float v) {
         MinecraftClient client = MinecraftClient.getInstance();
         int enabled_modules = 0;
-        for(ToggleableModule module : mods) {
+        for(Module module : mods) {
             if(module.module_enabled) {
                 drawContext.drawText(client.textRenderer, generateRainbowString(module.module_name), 3, 5+(enabled_modules*10), 16777215, true);
                 enabled_modules++;

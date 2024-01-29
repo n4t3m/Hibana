@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import com.natem135.hibana.interfaces.ISimpleOption;
-import com.natem135.hibana.modules.ToggleableModule;
+import com.natem135.hibana.modules.Module;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -18,7 +18,7 @@ import static com.natem135.hibana.Hibana.XRAY_ENABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.XRAY_DISABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.LOGGER;
 
-public class XrayModule extends ToggleableModule {
+public class XrayModule extends Module {
     public static ArrayList<Block> blocks = new ArrayList<>();
 
     public XrayModule() {

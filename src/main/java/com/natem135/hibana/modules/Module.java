@@ -6,12 +6,12 @@ import static com.natem135.hibana.Hibana.LOGGER;
 
 import java.util.Locale;
 
-public abstract class ToggleableModule {
+public abstract class Module {
     public KeyBinding keybind;
     public final String module_name;
     public boolean module_enabled = false;
 
-    public ToggleableModule(String module_name, int code) {
+    public Module(String module_name, int code) {
         keybind = new KeyBinding(
                 "key.hibana." + this.getClass().getSimpleName().toLowerCase(Locale.ROOT) + "_toggle",
                 code,

@@ -1,6 +1,6 @@
 package com.natem135.hibana.modules.movement;
 
-import com.natem135.hibana.modules.ToggleableModule;
+import com.natem135.hibana.modules.Module;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.GameOptions;
@@ -13,7 +13,7 @@ import static com.natem135.hibana.Hibana.PLAYER_FLY_ENABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.PLAYER_FLY_DISABLED_SOUND_EVENT;
 import java.lang.Math;
 
-public class PlayerFlyModule extends ToggleableModule {
+public class PlayerFlyModule extends Module {
     int tick_timer = 0;
     boolean reduced_last_tick = false;
 
