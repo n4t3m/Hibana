@@ -4,7 +4,7 @@ A simple WIP hacked client created using the Fabric API.
 
 This project was originally created for a Cyber@UCR general meeting. I'm going to continue making this because it's fun to "reverse engineer" how Minecraft works and make these modifications.
 
-Current Client Version: `0.1.2`
+Current Client Version: `0.1.3`
 
 Current Supported MC Version: `1.20.4`
 
