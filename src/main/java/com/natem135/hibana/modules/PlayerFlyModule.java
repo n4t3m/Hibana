@@ -22,7 +22,8 @@ public class PlayerFlyModule extends ToggleableModule {
         super("Player Fly", GLFW.GLFW_KEY_COMMA);
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = player.getWorld();
@@ -31,7 +32,8 @@ public class PlayerFlyModule extends ToggleableModule {
         tick_timer = 40;
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = player.getWorld();
         world.playSound(MinecraftClient.getInstance().player, player.getX(), player.getY(), player.getZ(), PLAYER_FLY_DISABLED_SOUND_EVENT, SoundCategory.MASTER);

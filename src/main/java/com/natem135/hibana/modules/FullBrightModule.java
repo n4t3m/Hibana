@@ -18,7 +18,8 @@ public class FullBrightModule extends ToggleableModule {
         super("Fullbright", GLFW.GLFW_KEY_BACKSLASH);
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();
@@ -28,7 +29,8 @@ public class FullBrightModule extends ToggleableModule {
         GammaUtils.setMaxGamma(client);
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();

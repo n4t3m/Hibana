@@ -23,11 +23,13 @@ public class AutoFishSoundModule extends ToggleableModule {
         super("AutoFish (Sound-Based)", GLFW.GLFW_KEY_B);
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         Hibana.getEventManager().addListener(ReceivePacketEvent.class, recvPacketListener);
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         Hibana.getEventManager().removeListener(ReceivePacketEvent.class, recvPacketListener);
     }
 

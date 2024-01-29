@@ -1,10 +1,10 @@
 package com.natem135.hibana.modules;
 
+import com.natem135.hibana.modules.render.XrayModule;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 public class ModuleManager {

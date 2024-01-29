@@ -18,11 +18,13 @@ public class AutoRespawnModule extends ToggleableModule {
         super("AutoRespawn", GLFW.GLFW_KEY_BACKSLASH);
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         Hibana.getEventManager().addListener(ClientPlayerDeathEvent.class, onClientPlayerDeathListener);
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         Hibana.getEventManager().removeListener(ClientPlayerDeathEvent.class, onClientPlayerDeathListener);
     }
 

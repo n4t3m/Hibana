@@ -22,11 +22,13 @@ public class AutoFishEntityModule extends ToggleableModule {
         super("AutoFish (Entity-Based)", GLFW.GLFW_KEY_B);
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         Hibana.getEventManager().addListener(CaughtFishEvent.class, recvPacketListener);
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         Hibana.getEventManager().removeListener(CaughtFishEvent.class, recvPacketListener);
     }
 

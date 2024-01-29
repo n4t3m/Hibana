@@ -11,7 +11,7 @@ public abstract class ToggleableModule {
     public final String module_name;
     public boolean module_enabled = false;
 
-    ToggleableModule(String module_name, int code) {
+    public ToggleableModule(String module_name, int code) {
         keybind = new KeyBinding(
                 "key.hibana." + this.getClass().getSimpleName().toLowerCase(Locale.ROOT) + "_toggle",
                 code,
@@ -55,8 +55,8 @@ public abstract class ToggleableModule {
         LOGGER.info(String.format("Disabled %s", this.module_name));
     }
 
-    abstract void onTick();
-    void onEnable() {}
-    void onDisable() {}
+    public abstract void onTick();
+    public void onEnable() {}
+    public void onDisable() {}
 
 }

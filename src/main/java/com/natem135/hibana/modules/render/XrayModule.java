@@ -1,9 +1,10 @@
-package com.natem135.hibana.modules;
+package com.natem135.hibana.modules.render;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
 import com.natem135.hibana.interfaces.ISimpleOption;
+import com.natem135.hibana.modules.ToggleableModule;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -30,7 +31,8 @@ public class XrayModule extends ToggleableModule {
         module_enabled = false;
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();
@@ -43,7 +45,8 @@ public class XrayModule extends ToggleableModule {
         client.worldRenderer.reload();
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();
@@ -56,6 +59,7 @@ public class XrayModule extends ToggleableModule {
         client.worldRenderer.reload();
     }
 
+    @Override
     public void onTick() { }
 
     public static boolean shouldRender(Block block) {

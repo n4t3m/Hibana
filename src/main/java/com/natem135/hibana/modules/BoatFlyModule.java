@@ -19,7 +19,8 @@ public class BoatFlyModule extends ToggleableModule {
         super("Boat Fly", GLFW.GLFW_KEY_BACKSLASH);
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = player.getWorld();
@@ -28,7 +29,8 @@ public class BoatFlyModule extends ToggleableModule {
         tick_timer = 40;
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = player.getWorld();
         world.playSound(MinecraftClient.getInstance().player, player.getX(), player.getY(), player.getZ(), BOAT_FLY_DISABLED_EVENT, SoundCategory.MASTER);
