@@ -9,15 +9,18 @@ import java.util.Locale;
 public abstract class Module {
     public KeyBinding keybind;
     public final String module_name;
+
+    public final String categoryName;
     public boolean module_enabled = false;
 
-    public Module(String module_name, int code) {
+    public Module(String module_name, String category_name, int code) {
         keybind = new KeyBinding(
                 "key.hibana." + this.getClass().getSimpleName().toLowerCase(Locale.ROOT) + "_toggle",
                 code,
                 "category.hibana"
                 );
         this.module_name = module_name;
+        this.categoryName = category_name;
     }
 
     public void tick(MinecraftClient client) {

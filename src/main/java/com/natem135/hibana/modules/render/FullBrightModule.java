@@ -16,7 +16,7 @@ import static com.natem135.hibana.Hibana.FULLBRIGHT_DISABLED_SOUND_EVENT;
 public class FullBrightModule extends Module {
 
     public FullBrightModule() {
-        super("Fullbright", GLFW.GLFW_KEY_BACKSLASH);
+        super("Fullbright","render", GLFW.GLFW_KEY_BACKSLASH);
     }
 
     @Override

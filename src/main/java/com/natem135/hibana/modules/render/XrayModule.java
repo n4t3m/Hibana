@@ -22,7 +22,7 @@ public class XrayModule extends Module {
     public static ArrayList<Block> blocks = new ArrayList<>();
 
     public XrayModule() {
-        super("Xray", GLFW.GLFW_KEY_X);
+        super("Xray","render", GLFW.GLFW_KEY_X);
         blocks.add(Blocks.DIAMOND_ORE);
         blocks.add(Blocks.IRON_ORE);
         blocks.add(Blocks.COAL_ORE);

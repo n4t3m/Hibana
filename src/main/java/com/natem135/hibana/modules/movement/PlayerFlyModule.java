@@ -20,7 +20,7 @@ public class PlayerFlyModule extends Module {
     final double MAX_SPEED = 2.5;
 
     public PlayerFlyModule() {
-        super("Player Fly", GLFW.GLFW_KEY_COMMA);
+        super("Player Fly","movement", GLFW.GLFW_KEY_COMMA);
     }
 
     @Override

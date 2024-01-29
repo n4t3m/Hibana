@@ -16,7 +16,7 @@ public class AutoRespawnModule extends Module {
     Listener onClientPlayerDeathListener = new Listener(playerDeathConsumer);
 
     public AutoRespawnModule() {
-        super("AutoRespawn", GLFW.GLFW_KEY_BACKSLASH);
+        super("AutoRespawn","misc", GLFW.GLFW_KEY_BACKSLASH);
     }
 
     @Override

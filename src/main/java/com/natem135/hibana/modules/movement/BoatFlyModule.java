@@ -17,7 +17,7 @@ public class BoatFlyModule extends Module {
     boolean reduced_last_tick = false;
 
     public BoatFlyModule() {
-        super("Boat Fly", GLFW.GLFW_KEY_BACKSLASH);
+        super("Boat Fly","movement", GLFW.GLFW_KEY_BACKSLASH);
     }
 
     @Override

@@ -20,7 +20,7 @@ public class AutoFishEntityModule extends Module {
     private static boolean rod_cool_down = false;
 
     public AutoFishEntityModule() {
-        super("AutoFish (Entity-Based)", GLFW.GLFW_KEY_B);
+        super("AutoFish (Entity-Based)","misc", GLFW.GLFW_KEY_B);
     }
 
     @Override
