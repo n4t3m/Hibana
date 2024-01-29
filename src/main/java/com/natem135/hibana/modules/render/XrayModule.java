@@ -1,9 +1,10 @@
-package com.natem135.hibana.modules;
+package com.natem135.hibana.modules.render;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
 import com.natem135.hibana.interfaces.ISimpleOption;
+import com.natem135.hibana.modules.Module;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -17,11 +18,11 @@ import static com.natem135.hibana.Hibana.XRAY_ENABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.XRAY_DISABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.LOGGER;
 
-public class XrayModule extends ToggleableModule {
+public class XrayModule extends Module {
     public static ArrayList<Block> blocks = new ArrayList<>();
 
     public XrayModule() {
-        super("Xray", GLFW.GLFW_KEY_X);
+        super("Xray","render", GLFW.GLFW_KEY_X);
         blocks.add(Blocks.DIAMOND_ORE);
         blocks.add(Blocks.IRON_ORE);
         blocks.add(Blocks.COAL_ORE);
@@ -30,7 +31,8 @@ public class XrayModule extends ToggleableModule {
         module_enabled = false;
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();
@@ -43,7 +45,8 @@ public class XrayModule extends ToggleableModule {
         client.worldRenderer.reload();
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();
@@ -56,6 +59,7 @@ public class XrayModule extends ToggleableModule {
         client.worldRenderer.reload();
     }
 
+    @Override
     public void onTick() { }
 
     public static boolean shouldRender(Block block) {

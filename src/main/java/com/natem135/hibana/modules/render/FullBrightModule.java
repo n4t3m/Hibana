@@ -1,7 +1,8 @@
-package com.natem135.hibana.modules;
+package com.natem135.hibana.modules.render;
 
 import java.util.Objects;
 
+import com.natem135.hibana.modules.Module;
 import com.natem135.hibana.util.GammaUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -12,13 +13,14 @@ import org.lwjgl.glfw.GLFW;
 import static com.natem135.hibana.Hibana.FULLBRIGHT_ENABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.FULLBRIGHT_DISABLED_SOUND_EVENT;
 
-public class FullBrightModule extends ToggleableModule {
+public class FullBrightModule extends Module {
 
     public FullBrightModule() {
-        super("Fullbright", GLFW.GLFW_KEY_BACKSLASH);
+        super("Fullbright","render", GLFW.GLFW_KEY_BACKSLASH);
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();
@@ -28,7 +30,8 @@ public class FullBrightModule extends ToggleableModule {
         GammaUtils.setMaxGamma(client);
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = Objects.requireNonNull(player).getWorld();

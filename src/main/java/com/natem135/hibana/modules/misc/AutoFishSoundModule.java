@@ -1,8 +1,9 @@
-package com.natem135.hibana.modules;
+package com.natem135.hibana.modules.misc;
 
 import com.natem135.hibana.Hibana;
 import com.natem135.hibana.event.Listener;
 import com.natem135.hibana.event.ReceivePacketEvent;
+import com.natem135.hibana.modules.Module;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.network.packet.Packet;
@@ -14,20 +15,22 @@ import org.lwjgl.glfw.GLFW;
 
 import java.util.function.Consumer;
 
-public class AutoFishSoundModule extends ToggleableModule {
+public class AutoFishSoundModule extends Module {
 
     Consumer<ReceivePacketEvent> onRecv = AutoFishSoundModule::onReceivePacket;
     Listener recvPacketListener = new Listener(onRecv);
 
     public AutoFishSoundModule() {
-        super("AutoFish (Sound-Based)", GLFW.GLFW_KEY_B);
+        super("AutoFish (Sound-Based)","misc", GLFW.GLFW_KEY_B);
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         Hibana.getEventManager().addListener(ReceivePacketEvent.class, recvPacketListener);
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         Hibana.getEventManager().removeListener(ReceivePacketEvent.class, recvPacketListener);
     }
 

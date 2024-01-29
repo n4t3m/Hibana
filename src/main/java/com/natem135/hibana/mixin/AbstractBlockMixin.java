@@ -1,6 +1,6 @@
 package com.natem135.hibana.mixin;
 
-import com.natem135.hibana.HibanaClient;
+import com.natem135.hibana.modules.ModuleManager;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
@@ -14,7 +14,7 @@ public class AbstractBlockMixin {
     @Inject(method = "getAmbientOcclusionLightLevel", at = @At("HEAD"), cancellable = true)
     public void getAmbientOcclusionLightLevel(BlockState state, net.minecraft.world.BlockView world, BlockPos pos, CallbackInfoReturnable<Float> cir)
     {
-        if(HibanaClient.xrayModule.module_enabled || HibanaClient.fullBrightModule.module_enabled) {
+        if(ModuleManager.xrayModule.module_enabled || ModuleManager.fullBrightModule.module_enabled) {
             cir.setReturnValue(1f);
         }
     }

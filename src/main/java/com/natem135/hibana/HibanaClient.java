@@ -1,38 +1,27 @@
 package com.natem135.hibana;
 
 import com.natem135.hibana.modules.*;
+import com.natem135.hibana.modules.Module;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Comparator;
 
 public class HibanaClient implements ClientModInitializer {
-    public static final BoatFlyModule boatFlyModule = new BoatFlyModule();
-    public static final XrayModule xrayModule = new XrayModule();
-    public static final PlayerFlyModule playerFlyModule = new PlayerFlyModule();
-    public static final FullBrightModule fullBrightModule = new FullBrightModule();
-    public static final AutoFishSoundModule autoFishSoundModule = new AutoFishSoundModule();
-    public  static final AutoRespawnModule autoRespawnModule = new AutoRespawnModule();
-    public  static final AutoFishEntityModule autoFishEntityModule = new AutoFishEntityModule();
 
-    List<ToggleableModule> mods = Arrays.asList(
-            boatFlyModule,
-            xrayModule,
-            playerFlyModule,
-            fullBrightModule,
-            autoFishSoundModule,
-            autoRespawnModule,
-            autoFishEntityModule
-    );
 
     @Override
     public void onInitializeClient() {
-        for(ToggleableModule mod : mods) {
+        ModuleManager.mods.sort(Comparator.comparing(Module::getModuleName));
+        for(Module mod : ModuleManager.mods) {
             Hibana.LOGGER.info(String.format("Initializing %s...", mod.module_name));
             KeyBindingHelper.registerKeyBinding(mod.keybind);
             ClientTickEvents.END_CLIENT_TICK.register(mod::tick);
         }
+        HudRenderCallback.EVENT.register(ModuleManager::renderEnabledModList);
+
     }
+
 }

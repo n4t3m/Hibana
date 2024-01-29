@@ -1,5 +1,6 @@
-package com.natem135.hibana.modules;
+package com.natem135.hibana.modules.movement;
 
+import com.natem135.hibana.modules.Module;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.GameOptions;
@@ -11,15 +12,16 @@ import org.lwjgl.glfw.GLFW;
 
 import static com.natem135.hibana.Hibana.*;
 
-public class BoatFlyModule extends ToggleableModule {
+public class BoatFlyModule extends Module {
     int tick_timer = 0;
     boolean reduced_last_tick = false;
 
     public BoatFlyModule() {
-        super("Boat Fly", GLFW.GLFW_KEY_BACKSLASH);
+        super("Boat Fly","movement", GLFW.GLFW_KEY_BACKSLASH);
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = player.getWorld();
@@ -28,7 +30,8 @@ public class BoatFlyModule extends ToggleableModule {
         tick_timer = 40;
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = player.getWorld();
         world.playSound(MinecraftClient.getInstance().player, player.getX(), player.getY(), player.getZ(), BOAT_FLY_DISABLED_EVENT, SoundCategory.MASTER);

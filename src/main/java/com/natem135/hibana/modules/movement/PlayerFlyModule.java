@@ -1,5 +1,6 @@
-package com.natem135.hibana.modules;
+package com.natem135.hibana.modules.movement;
 
+import com.natem135.hibana.modules.Module;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.GameOptions;
@@ -12,17 +13,18 @@ import static com.natem135.hibana.Hibana.PLAYER_FLY_ENABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.PLAYER_FLY_DISABLED_SOUND_EVENT;
 import java.lang.Math;
 
-public class PlayerFlyModule extends ToggleableModule {
+public class PlayerFlyModule extends Module {
     int tick_timer = 0;
     boolean reduced_last_tick = false;
 
     final double MAX_SPEED = 2.5;
 
     public PlayerFlyModule() {
-        super("Player Fly", GLFW.GLFW_KEY_COMMA);
+        super("Player Fly","movement", GLFW.GLFW_KEY_COMMA);
     }
 
-    @Override void onEnable() {
+    @Override
+    public void onEnable() {
         // Play Sound
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = player.getWorld();
@@ -31,7 +33,8 @@ public class PlayerFlyModule extends ToggleableModule {
         tick_timer = 40;
     }
 
-    @Override void onDisable() {
+    @Override
+    public void onDisable() {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         World world = player.getWorld();
         world.playSound(MinecraftClient.getInstance().player, player.getX(), player.getY(), player.getZ(), PLAYER_FLY_DISABLED_SOUND_EVENT, SoundCategory.MASTER);
