@@ -19,7 +19,7 @@ public class HibanaClient implements ClientModInitializer {
             KeyBindingHelper.registerKeyBinding(mod.keybind);
             ClientTickEvents.END_CLIENT_TICK.register(mod::tick);
         }
-        HudRenderCallback.EVENT.register(ModuleManager::render);
+        HudRenderCallback.EVENT.register(ModuleManager::renderEnabledModList);
 
     }
 

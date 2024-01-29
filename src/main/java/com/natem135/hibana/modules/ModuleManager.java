@@ -49,7 +49,7 @@ public class ModuleManager {
         return rainbowString.toString();
     }
 
-    public static void render(DrawContext drawContext, float v) {
+    public static void renderEnabledModList(DrawContext drawContext, float v) {
         MinecraftClient client = MinecraftClient.getInstance();
         int enabled_modules = 0;
         for(ToggleableModule module : mods) {
