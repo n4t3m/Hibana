@@ -1,6 +1,6 @@
 package com.natem135.hibana.modules.movement;
 
-import com.natem135.hibana.modules.ToggleableModule;
+import com.natem135.hibana.modules.Module;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.option.GameOptions;
@@ -12,7 +12,7 @@ import org.lwjgl.glfw.GLFW;
 
 import static com.natem135.hibana.Hibana.*;
 
-public class BoatFlyModule extends ToggleableModule {
+public class BoatFlyModule extends Module {
     int tick_timer = 0;
     boolean reduced_last_tick = false;
 

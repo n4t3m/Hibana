@@ -3,7 +3,7 @@ package com.natem135.hibana.modules.misc;
 import com.natem135.hibana.Hibana;
 import com.natem135.hibana.event.CaughtFishEvent;
 import com.natem135.hibana.event.Listener;
-import com.natem135.hibana.modules.ToggleableModule;
+import com.natem135.hibana.modules.Module;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.util.Hand;
@@ -11,7 +11,7 @@ import org.lwjgl.glfw.GLFW;
 
 import java.util.function.Consumer;
 
-public class AutoFishEntityModule extends ToggleableModule {
+public class AutoFishEntityModule extends Module {
 
     Consumer<CaughtFishEvent> onRecv = AutoFishEntityModule::onFishCaught;
     Listener recvPacketListener = new Listener(onRecv);

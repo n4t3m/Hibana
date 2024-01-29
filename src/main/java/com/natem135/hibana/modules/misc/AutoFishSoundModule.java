@@ -3,7 +3,7 @@ package com.natem135.hibana.modules.misc;
 import com.natem135.hibana.Hibana;
 import com.natem135.hibana.event.Listener;
 import com.natem135.hibana.event.ReceivePacketEvent;
-import com.natem135.hibana.modules.ToggleableModule;
+import com.natem135.hibana.modules.Module;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.network.packet.Packet;
@@ -15,7 +15,7 @@ import org.lwjgl.glfw.GLFW;
 
 import java.util.function.Consumer;
 
-public class AutoFishSoundModule extends ToggleableModule {
+public class AutoFishSoundModule extends Module {
 
     Consumer<ReceivePacketEvent> onRecv = AutoFishSoundModule::onReceivePacket;
     Listener recvPacketListener = new Listener(onRecv);

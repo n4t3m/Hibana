@@ -2,7 +2,7 @@ package com.natem135.hibana.modules.render;
 
 import java.util.Objects;
 
-import com.natem135.hibana.modules.ToggleableModule;
+import com.natem135.hibana.modules.Module;
 import com.natem135.hibana.util.GammaUtils;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
@@ -13,7 +13,7 @@ import org.lwjgl.glfw.GLFW;
 import static com.natem135.hibana.Hibana.FULLBRIGHT_ENABLED_SOUND_EVENT;
 import static com.natem135.hibana.Hibana.FULLBRIGHT_DISABLED_SOUND_EVENT;
 
-public class FullBrightModule extends ToggleableModule {
+public class FullBrightModule extends Module {
 
     public FullBrightModule() {
         super("Fullbright", GLFW.GLFW_KEY_BACKSLASH);
