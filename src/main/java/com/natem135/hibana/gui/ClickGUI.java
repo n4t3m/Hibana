@@ -30,7 +30,7 @@ public class ClickGUI extends Screen {
         int _index = 0;
         for(String category : categories) {
             categoryFrames.add(
-                    new CategoryFrame(100 + (_offset*_index), 100, 100, 40, category));
+                    new CategoryFrame(100 + (_offset*_index), 100, 80, 20, category));
                     _index++;
         }
         dragLock = new AtomicBoolean(false);
