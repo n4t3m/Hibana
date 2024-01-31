@@ -55,7 +55,7 @@ public class ModuleButton {
     }
 
     public boolean isHovered(double mouseX, double mouseY){
-        return mouseX > getBorderX() && mouseX < getBorderX() + parent.width && mouseY > getBorderY() && mouseY < getBorderY() + parent.height;
+        return mouseX > getBorderX() && mouseX < getBorderX() + parent.width && mouseY > getBorderY() && mouseY < getBorderY() + 3*parent.height/4.0;
     }
 
     public void mouseClicked(double mouseX, double mouseY, int button) {
