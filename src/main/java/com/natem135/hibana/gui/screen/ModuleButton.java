@@ -20,9 +20,9 @@ public class ModuleButton {
 
     public void onRender(DrawContext context, int mouseX, int mouseY, float delta) {
         context.drawBorder(
-                parent.x, parent.y+parent.height+((int)(parent.height/2)*offsetIndex), parent.width, (int)parent.height/2, Color.green.getRGB()
+                parent.x, parent.y+parent.height+((int)(3*parent.height/4)*offsetIndex), parent.width, (int)3*parent.height/4, Color.green.getRGB()
         );
-        context.fill(parent.x+1, parent.y+parent.height+((int)(parent.height/2)*offsetIndex)+1, parent.x+parent.width-1, (int)parent.y+parent.height+((int)(parent.height/2)*offsetIndex-1)+(int)(parent.height/2)-1, Color.black.getRGB());
+        context.fill(parent.x+1, parent.y+parent.height+((int)(3*parent.height/4)*offsetIndex)+1, parent.x+parent.width-1, (int)parent.y+parent.height+((int)(3*parent.height/4)*offsetIndex-1)+(int)(3*parent.height/4)-1, Color.black.getRGB());
         // Hibana.LOGGER.info(String.format("x1 %d y1 %d x2 %d y2 %d", parent.x, parent.y+parent.height+((int)(parent.height/2)*offsetIndex), parent.x+parent.width, (int)parent.y+parent.height+((int)(parent.height/2)*offsetIndex)+(int)(parent.height/2), Color.black.getRGB()));
     }
 
