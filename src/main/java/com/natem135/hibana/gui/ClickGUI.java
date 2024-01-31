@@ -2,11 +2,14 @@ package com.natem135.hibana.gui;
 
 import com.natem135.hibana.Hibana;
 import com.natem135.hibana.gui.screen.CategoryFrame;
+import com.natem135.hibana.modules.Module;
+import com.natem135.hibana.modules.ModuleManager;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class ClickGUI extends Screen {
 
@@ -16,12 +19,17 @@ public class ClickGUI extends Screen {
 
     public ClickGUI() {
         super(Text.of("Click GUI"));
-        categoryFrames.add(
-                new CategoryFrame(100, 100, 100, 40, "Category 1")
-        );
-        categoryFrames.add(
-                new CategoryFrame(200, 100, 100, 40, "Category 2")
-        );
+        HashSet<String>categories = new HashSet<>();
+        for(Module m : ModuleManager.mods) {
+            categories.add(m.categoryName);
+        }
+        int _offset = 40;
+        int _index = 0;
+        for(String category : categories) {
+            categoryFrames.add(
+                    new CategoryFrame(100 + (_offset*_index), 100, 100, 40, category));
+                    _index++;
+        }
     }
 
     // DrawScreen equivalent

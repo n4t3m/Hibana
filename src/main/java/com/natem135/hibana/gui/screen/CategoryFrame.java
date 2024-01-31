@@ -4,10 +4,11 @@ import com.natem135.hibana.Hibana;
 import com.natem135.hibana.modules.ModuleManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.text.Text;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CategoryFrame {
     public  int x, y, width, height, dragXOffset, dragYOffset;
@@ -27,20 +28,12 @@ public class CategoryFrame {
         this.drag = false;
         this.extend = false;
 
-        buttons.add(
-                new ModuleButton(
-                        this,
-                        ModuleManager.xrayModule,
-                        0
-                )
-        );
-        buttons.add(
-                new ModuleButton(
-                        this,
-                        ModuleManager.autoRespawnModule,
-                        1
-                )
-        );
+        AtomicInteger _index = new AtomicInteger();
+        ModuleManager.mods.stream().filter(module -> Objects.equals(module.categoryName, category))
+                .forEach(module -> {
+                    buttons.add(new ModuleButton(this, module, _index.get()));
+                    _index.getAndIncrement();
+                });
     }
 
     public void onRender(DrawContext context, int mouseX, int mouseY, float delta) {
