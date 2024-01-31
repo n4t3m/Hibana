@@ -13,7 +13,7 @@ public class CategoryFrame {
     public  int x, y, width, height, dragXOffset, dragYOffset;
     public String category;
     public boolean drag, extend;
-    public ArrayList<ModuleButton>  buttons = new ArrayList<>();
+    public ArrayList<ModuleButton> buttons = new ArrayList<>();
     public MinecraftClient client = MinecraftClient.getInstance();
 
 
@@ -44,7 +44,7 @@ public class CategoryFrame {
     }
 
     public void onRender(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.drawBorder(x, y, width, height, Color.green.getRGB());
+        context.drawBorder(x, y, width, height, Color.pink.getRGB());
         context.drawText(client.textRenderer, category, x+((int)(width - client.textRenderer.getWidth(category))/2)+1, y+((int)(height - client.textRenderer.fontHeight)/2)+1, Color.white.getRGB(), true);
         context.fill(x+1,y+1, x+width-1, y+height-1, Color.black.getRGB());
         if(extend) {
@@ -78,6 +78,9 @@ public class CategoryFrame {
                 dragXOffset = (int) mouseX - this.x;
                 dragYOffset = (int) mouseY - this.y;
             }
+        }
+        for(ModuleButton module : buttons) {
+            module.mouseClicked(mouseX, mouseY, button);
         }
     }
 
