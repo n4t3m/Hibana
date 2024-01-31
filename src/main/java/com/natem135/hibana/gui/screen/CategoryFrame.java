@@ -43,12 +43,19 @@ public class CategoryFrame {
     }
 
     public void onRender(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.drawBorder(x, y, width, height, Color.green.getRGB());
+        context.drawBorder(!drag ? x : mouseX-dragXOffset, !drag ? y : mouseY-dragYOffset, width, height, Color.green.getRGB());
         context.fill(x+1,y+1, x+width-1, y+height-1, Color.black.getRGB());
         if(extend) {
             for(ModuleButton button : buttons) {
                 button.onRender(context, mouseX, mouseY, delta);
             }
+        }
+    }
+
+    public void updatePositionIfDragged(DrawContext context, int mouseX, int mouseY, float delta) {
+        if(drag) {
+            x = (int) mouseX - dragXOffset;
+            y = (int) mouseY - dragYOffset;
         }
     }
 
