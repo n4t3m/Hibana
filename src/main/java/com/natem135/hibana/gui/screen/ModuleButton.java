@@ -59,7 +59,7 @@ public class ModuleButton {
     }
 
     public void mouseClicked(double mouseX, double mouseY, int button) {
-        if(button==0 && isHovered(mouseX, mouseY)) {
+        if(button==0 && parent.extend && isHovered(mouseX, mouseY)) {
             this.module.toggle();
         }
     }
