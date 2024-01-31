@@ -54,8 +54,8 @@ public class CategoryFrame {
 
     public void updatePositionIfDragged(DrawContext context, int mouseX, int mouseY, float delta) {
         if(drag) {
-            x = (int) mouseX - dragXOffset;
-            y = (int) mouseY - dragYOffset;
+            x = mouseX - dragXOffset;
+            y = mouseY - dragYOffset;
         }
     }
 
