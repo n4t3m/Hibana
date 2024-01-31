@@ -4,6 +4,7 @@ import com.natem135.hibana.Hibana;
 import com.natem135.hibana.modules.ModuleManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.text.Text;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -43,7 +44,8 @@ public class CategoryFrame {
     }
 
     public void onRender(DrawContext context, int mouseX, int mouseY, float delta) {
-        context.drawBorder(!drag ? x : mouseX-dragXOffset, !drag ? y : mouseY-dragYOffset, width, height, Color.green.getRGB());
+        context.drawBorder(x, y, width, height, Color.green.getRGB());
+        context.drawText(client.textRenderer, category, x+((int)(width - client.textRenderer.getWidth(category))/2)+1, y+((int)(height - client.textRenderer.fontHeight)/2)+1, Color.white.getRGB(), true);
         context.fill(x+1,y+1, x+width-1, y+height-1, Color.black.getRGB());
         if(extend) {
             for(ModuleButton button : buttons) {
@@ -65,7 +67,7 @@ public class CategoryFrame {
 
     public void mouseClicked(double mouseX, double mouseY, int button) {
         if(isHovered(mouseX , mouseY)) {
-            if(button==0) {
+            if(button==1) {
                 Hibana.LOGGER.info("MOUSE CLICKED AND HOVERED");
                 extend = !extend;
                 Hibana.LOGGER.info(String.format("Extent set to: %b", extend));
@@ -80,7 +82,7 @@ public class CategoryFrame {
     }
 
     public void mouseReleased(double mouseX, double mouseY, int button) {
-        if(drag && button==1) {
+        if(drag && button==0) {
             Hibana.LOGGER.info(String.format("Finished Dragging. X: %.2f, Y: %.2f", mouseX, mouseY));
             drag = false;
             x = (int) mouseX - dragXOffset;

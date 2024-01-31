@@ -17,10 +17,10 @@ public class ClickGUI extends Screen {
     public ClickGUI() {
         super(Text.of("Click GUI"));
         categoryFrames.add(
-                new CategoryFrame(100, 100, 100, 20, "Demo")
+                new CategoryFrame(100, 100, 100, 40, "Category 1")
         );
         categoryFrames.add(
-                new CategoryFrame(200, 100, 100, 20, "Demo")
+                new CategoryFrame(200, 100, 100, 40, "Category 2")
         );
     }
 
