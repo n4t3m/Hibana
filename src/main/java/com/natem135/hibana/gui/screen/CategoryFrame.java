@@ -1,6 +1,7 @@
 package com.natem135.hibana.gui.screen;
 
 import com.natem135.hibana.Hibana;
+import com.natem135.hibana.gui.ClickGUI;
 import com.natem135.hibana.modules.ModuleManager;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -67,9 +68,11 @@ public class CategoryFrame {
             }
             else {
                 Hibana.LOGGER.info(String.format("Starting drag of Component at Component x %d y %d and Mouse X %.2f Y %.2f", x, y, mouseX, mouseY));
-                drag = true;
-                dragXOffset = (int) mouseX - this.x;
-                dragYOffset = (int) mouseY - this.y;
+                if(ClickGUI.CLICK_GUI_INSTANCE.requestDragLock()) {
+                    drag = true;
+                    dragXOffset = (int) mouseX - this.x;
+                    dragYOffset = (int) mouseY - this.y;
+                }
             }
         }
         for(ModuleButton module : buttons) {
@@ -83,6 +86,7 @@ public class CategoryFrame {
             drag = false;
             x = (int) mouseX - dragXOffset;
             y = (int) mouseY - dragYOffset;
+            ClickGUI.CLICK_GUI_INSTANCE.releaseDragLock();
         }
     }
 
