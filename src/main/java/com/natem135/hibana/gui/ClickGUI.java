@@ -19,6 +19,9 @@ public class ClickGUI extends Screen {
         categoryFrames.add(
                 new CategoryFrame(100, 100, 100, 20, "Demo")
         );
+        categoryFrames.add(
+                new CategoryFrame(200, 100, 100, 20, "Demo")
+        );
     }
 
     // DrawScreen equivalent

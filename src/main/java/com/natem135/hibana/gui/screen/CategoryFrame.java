@@ -80,7 +80,7 @@ public class CategoryFrame {
     }
 
     public void mouseReleased(double mouseX, double mouseY, int button) {
-        if(button==1) {
+        if(drag && button==1) {
             Hibana.LOGGER.info(String.format("Finished Dragging. X: %.2f, Y: %.2f", mouseX, mouseY));
             drag = false;
             x = (int) mouseX - dragXOffset;
