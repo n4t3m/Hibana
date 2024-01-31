@@ -21,7 +21,7 @@ public class AutoFishSoundModule extends Module {
     Listener recvPacketListener = new Listener(onRecv);
 
     public AutoFishSoundModule() {
-        super("AutoFish (Sound-Based)","misc", GLFW.GLFW_KEY_B);
+        super("AutoFish (Sound)","misc", GLFW.GLFW_KEY_B);
     }
 
     @Override
