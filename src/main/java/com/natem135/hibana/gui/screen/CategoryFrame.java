@@ -88,6 +88,9 @@ public class CategoryFrame {
             y = (int) mouseY - dragYOffset;
             ClickGUI.CLICK_GUI_INSTANCE.releaseDragLock();
         }
+        for(ModuleButton module : buttons) {
+            module.mouseReleased(mouseX, mouseY, button);
+        }
     }
 
 
