@@ -10,7 +10,8 @@
 		"AbstractBlockMixin",
 		"ClientConnectionMixin",
 		"ClientPlayNetworkHandlerMixin",
-		"FishingBobberEntityMixin"
+		"FishingBobberEntityMixin",
+		"KeyBindingMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
