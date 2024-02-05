@@ -26,8 +26,8 @@ public class ModuleButton {
         this.offsetIndex = offsetIndex;
         this.optionsExpanded = false;
 
-        options.add(new OptionButton(this, ModuleManager.xrayModule, 0));
-        options.add(new OptionButton(this, ModuleManager.xrayModule, 1));
+        options.add(new KeybindOptionButton(this, this.module, 0));
+        // options.add(new KeybindOptionButton(this, this.module, 1));
     }
 
     public int getBorderX() {

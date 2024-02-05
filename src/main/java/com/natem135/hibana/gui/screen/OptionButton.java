@@ -9,12 +9,12 @@ import java.awt.*;
 
 public class OptionButton {
 
-    private final Module module;
-    private final ModuleButton parent;
+    protected final Module module;
+    protected final ModuleButton parent;
 
-    private final int offsetIndex;
+    protected final int offsetIndex;
 
-    private final MinecraftClient client = MinecraftClient.getInstance();
+    protected final MinecraftClient client = MinecraftClient.getInstance();
 
     public OptionButton(ModuleButton parent, Module module, int offsetIndex) {
         this.module = module;
@@ -61,8 +61,8 @@ public class OptionButton {
             );
             // context.drawText(client.textRenderer, "Option", getBorderX()+((int)(this.getWidth() - client.textRenderer.getWidth(module.module_name))/2), getBorderY()+((int)(this.getHeight() - client.textRenderer.fontHeight)/2)-2, Color.white.getRGB(), true);
             context.fill(this.getFillX1(), this.getFillY1(), this.getFillX2(), this.getFillY2(), Color.blue.getRGB());
-            Hibana.LOGGER.info(String.format("Fill (%d) %d %d %d %d", offsetIndex,this.getFillX1(), this.getFillY1(), this.getFillX2(), this.getFillY2()));
-            Hibana.LOGGER.info(String.format("Border (%d) %d %d %d %d", offsetIndex,this.getBorderX(), this.getBorderY(), this.getBorderX()+this.getWidth(), this.getBorderY()+this.getHeight()));
+            // Hibana.LOGGER.info(String.format("Fill (%d) %d %d %d %d", offsetIndex,this.getFillX1(), this.getFillY1(), this.getFillX2(), this.getFillY2()));
+            // Hibana.LOGGER.info(String.format("Border (%d) %d %d %d %d", offsetIndex,this.getBorderX(), this.getBorderY(), this.getBorderX()+this.getWidth(), this.getBorderY()+this.getHeight()));
 
         }
     }

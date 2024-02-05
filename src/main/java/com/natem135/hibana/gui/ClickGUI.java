@@ -26,11 +26,11 @@ public class ClickGUI extends Screen {
         for(Module m : ModuleManager.mods) {
             categories.add(m.categoryName);
         }
-        int _offset = 40;
+        int _offset = 120+5;
         int _index = 0;
         for(String category : categories) {
             categoryFrames.add(
-                    new CategoryFrame(100 + (_offset*_index), 100, 80, 20, category));
+                    new CategoryFrame((_offset*_index), 100, 120, 20, category));
                     _index++;
         }
         dragLock = new AtomicBoolean(false);

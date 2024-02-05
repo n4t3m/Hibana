@@ -18,9 +18,9 @@ public class KeybindOptionButton extends OptionButton {
         super.onRender(context, mouseX, mouseY, delta);
         if(this.parent.getOptionsExtended()) {
             IKeyBinding x = (IKeyBinding)(Object)module.keybind;
-            Hibana.LOGGER.info(String.format("%s, %s %s", module.keybind.getBoundKeyLocalizedText().toString(), module.keybind.getTranslationKey(), x.getBoundKey().toString()));
-            String _text = String.format("Keybind: %s", module.keybind.getBoundKeyLocalizedText());
-            context.drawText(this.client.textRenderer, "Keybind: ", this.getBorderX() + ((this.getWidth() - client.textRenderer.getWidth(_text))/2), this.getBorderY() + (((this.getHeight() / 2) - client.textRenderer.fontHeight) / 2), Color.white.getRGB(), true);
+            Hibana.LOGGER.info(String.format("%s, %s %s", module.keybind.getBoundKeyLocalizedText().toString(), module.keybind.getTranslationKey(), x.getBoundKey().getLocalizedText().getContent().toString()));
+            String _text = String.format("Keybind: %s", module.keybind.getBoundKeyLocalizedText().toString().substring(8, module.keybind.getBoundKeyLocalizedText().toString().length()-1));
+            context.drawText(this.client.textRenderer, _text, this.getBorderX() + ((this.getWidth() - client.textRenderer.getWidth(_text))/2), this.getBorderY() + ((this.getHeight() - client.textRenderer.fontHeight) / 2), Color.white.getRGB(), true);
         }
     }
 }
