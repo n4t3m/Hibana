@@ -1,11 +1,14 @@
 package com.natem135.hibana.gui;
 
+import com.natem135.hibana.Hibana;
 import com.natem135.hibana.gui.screen.CategoryFrame;
+import com.natem135.hibana.gui.screen.KeybindOptionButton;
 import com.natem135.hibana.modules.Module;
 import com.natem135.hibana.modules.ModuleManager;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
+import org.lwjgl.glfw.GLFW;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -80,6 +83,13 @@ public class ClickGUI extends Screen {
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (keyCode == GLFW.GLFW_KEY_RIGHT_SHIFT || keyCode==GLFW.GLFW_KEY_ESCAPE) {
+            if(rebindLock.get()) {
+                this.cancelRebind();
+            }
+            this.close();
+            return true;
+        }
         for(CategoryFrame frame : categoryFrames) {
             frame.keyPressed(keyCode);
         }
@@ -92,5 +102,17 @@ public class ClickGUI extends Screen {
 
     public void releaseRebindLock() {
         rebindLock.set(false);
+    }
+
+    public void cancelRebind() {
+        Hibana.LOGGER.info("Cancelling Rebind Process");
+        categoryFrames.forEach(category -> category.buttons.forEach(moduleButton -> moduleButton.options.forEach(option -> {
+            if(option instanceof KeybindOptionButton button) {
+                if(button.isBeingRebinded()) {
+                    button.endRebindProcess();
+                }
+            }
+        }
+        )));
     }
 }

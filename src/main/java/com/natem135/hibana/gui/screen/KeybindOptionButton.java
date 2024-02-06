@@ -33,8 +33,7 @@ public class KeybindOptionButton extends OptionButton {
             if(ClickGUI.CLICK_GUI_INSTANCE.requestRebindLock()) {
                 isRebinding = true;
             } else if (isRebinding) {
-                isRebinding = false;
-                ClickGUI.CLICK_GUI_INSTANCE.releaseRebindLock();
+                this.endRebindProcess();
             }
         }
     }
@@ -44,8 +43,7 @@ public class KeybindOptionButton extends OptionButton {
         if (isRebinding) {
             //module.keybind.setBoundKey(InputUtil.fromKeyCode(keyCode, 0));
             module.keyCode = keyCode;
-            isRebinding = false;
-            ClickGUI.CLICK_GUI_INSTANCE.releaseRebindLock();
+            this.endRebindProcess();
         }
     }
 
@@ -54,5 +52,14 @@ public class KeybindOptionButton extends OptionButton {
             return "Rebinding. Click to Cancel.";
         }
         return String.format("Keybind: %s", module.keyCode==0 ? "None" : GLFW.glfwGetKeyName(module.keyCode, GLFW.glfwGetKeyScancode(module.keyCode)));
+    }
+
+    public boolean isBeingRebinded() {
+        return isRebinding;
+    }
+
+    public void endRebindProcess() {
+        isRebinding = false;
+        ClickGUI.CLICK_GUI_INSTANCE.releaseRebindLock();
     }
 }
