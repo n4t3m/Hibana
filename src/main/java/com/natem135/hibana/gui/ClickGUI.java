@@ -9,7 +9,6 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
-import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -86,7 +85,6 @@ public class ClickGUI extends Screen {
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        Hibana.LOGGER.info(String.format("code %d scancode %d modifiers %d Should Close %b", keyCode, scanCode, modifiers, shouldClose.get()));
         if ((keyCode == GLFW.GLFW_KEY_RIGHT_SHIFT || keyCode==GLFW.GLFW_KEY_ESCAPE)) {
             if(this.isSomeModuleRebinding()) {
                 this.cancelRebind();
