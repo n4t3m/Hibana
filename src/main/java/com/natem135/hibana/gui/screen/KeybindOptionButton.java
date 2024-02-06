@@ -1,15 +1,12 @@
 package com.natem135.hibana.gui.screen;
 
 import com.natem135.hibana.Hibana;
-import com.natem135.hibana.interfaces.IKeyBinding;
+import com.natem135.hibana.gui.ClickGUI;
 import com.natem135.hibana.modules.Module;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.util.InputUtil;
-import org.apache.commons.logging.Log;
 import org.lwjgl.glfw.GLFW;
 
 import java.awt.*;
-import java.util.logging.Logger;
 
 public class KeybindOptionButton extends OptionButton {
 
@@ -23,7 +20,6 @@ public class KeybindOptionButton extends OptionButton {
     public void onRender(DrawContext context, int mouseX, int mouseY, float delta) {
         super.onRender(context, mouseX, mouseY, delta);
         if(this.parent.getOptionsExtended()) {
-            IKeyBinding x = (IKeyBinding)(Object)module.keybind;
             String _text = this.getOptionText();
             context.drawText(this.client.textRenderer, _text, this.getBorderX() + ((this.getWidth() - client.textRenderer.getWidth(_text))/2), this.getBorderY() + ((this.getHeight() - client.textRenderer.fontHeight) / 2), Color.white.getRGB(), true);
         }
@@ -34,7 +30,12 @@ public class KeybindOptionButton extends OptionButton {
         super.mouseClicked(mouseX, mouseY, button);
         if(parent.getOptionsExtended() && isHovered(mouseX, mouseY)) {
             Hibana.LOGGER.info("Clicked on Binding Button");
-            isRebinding = !isRebinding;
+            if(ClickGUI.CLICK_GUI_INSTANCE.requestRebindLock()) {
+                isRebinding = true;
+            } else if (isRebinding) {
+                isRebinding = false;
+                ClickGUI.CLICK_GUI_INSTANCE.releaseRebindLock();
+            }
         }
     }
 
@@ -44,6 +45,7 @@ public class KeybindOptionButton extends OptionButton {
             //module.keybind.setBoundKey(InputUtil.fromKeyCode(keyCode, 0));
             module.keyCode = keyCode;
             isRebinding = false;
+            ClickGUI.CLICK_GUI_INSTANCE.releaseRebindLock();
         }
     }
 

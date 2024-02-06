@@ -1,6 +1,5 @@
 package com.natem135.hibana.gui;
 
-import com.natem135.hibana.Hibana;
 import com.natem135.hibana.gui.screen.CategoryFrame;
 import com.natem135.hibana.modules.Module;
 import com.natem135.hibana.modules.ModuleManager;
@@ -19,6 +18,8 @@ public class ClickGUI extends Screen {
 
     private final AtomicBoolean dragLock;
 
+    private final AtomicBoolean rebindLock;
+
 
     public ClickGUI() {
         super(Text.of("Click GUI"));
@@ -34,6 +35,7 @@ public class ClickGUI extends Screen {
                     _index++;
         }
         dragLock = new AtomicBoolean(false);
+        rebindLock = new AtomicBoolean(false);
     }
 
     // DrawScreen equivalent
@@ -82,5 +84,13 @@ public class ClickGUI extends Screen {
             frame.keyPressed(keyCode);
         }
         return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    public boolean requestRebindLock() {
+        return rebindLock.compareAndSet(false, true);
+    }
+
+    public void releaseRebindLock() {
+        rebindLock.set(false);
     }
 }
