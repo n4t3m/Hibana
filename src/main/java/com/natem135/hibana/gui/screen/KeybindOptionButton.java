@@ -4,23 +4,53 @@ import com.natem135.hibana.Hibana;
 import com.natem135.hibana.interfaces.IKeyBinding;
 import com.natem135.hibana.modules.Module;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.util.InputUtil;
 import org.apache.commons.logging.Log;
+import org.lwjgl.glfw.GLFW;
 
 import java.awt.*;
 import java.util.logging.Logger;
 
 public class KeybindOptionButton extends OptionButton {
+
+    private boolean isRebinding;
+
     public KeybindOptionButton(ModuleButton parent, Module module, int offsetIndex) {
         super(parent, module, offsetIndex);
+        isRebinding = false;
     }
 
     public void onRender(DrawContext context, int mouseX, int mouseY, float delta) {
         super.onRender(context, mouseX, mouseY, delta);
         if(this.parent.getOptionsExtended()) {
             IKeyBinding x = (IKeyBinding)(Object)module.keybind;
-            Hibana.LOGGER.info(String.format("%s, %s %s", module.keybind.getBoundKeyLocalizedText().toString(), module.keybind.getTranslationKey(), x.getBoundKey().getLocalizedText().getContent().toString()));
-            String _text = String.format("Keybind: %s", module.keybind.getBoundKeyLocalizedText().toString().substring(8, module.keybind.getBoundKeyLocalizedText().toString().length()-1));
+            String _text = this.getOptionText();
             context.drawText(this.client.textRenderer, _text, this.getBorderX() + ((this.getWidth() - client.textRenderer.getWidth(_text))/2), this.getBorderY() + ((this.getHeight() - client.textRenderer.fontHeight) / 2), Color.white.getRGB(), true);
         }
+    }
+
+    @Override
+    public void mouseClicked(double mouseX, double mouseY, int button) {
+        super.mouseClicked(mouseX, mouseY, button);
+        if(parent.getOptionsExtended() && isHovered(mouseX, mouseY)) {
+            Hibana.LOGGER.info("Clicked on Binding Button");
+            isRebinding = !isRebinding;
+        }
+    }
+
+    @Override
+    public void keyPressed(int keyCode) {
+        if (isRebinding) {
+            //module.keybind.setBoundKey(InputUtil.fromKeyCode(keyCode, 0));
+            module.keyCode = keyCode;
+            isRebinding = false;
+        }
+    }
+
+    private String getOptionText() {
+        if(isRebinding) {
+            return "Rebinding. Click to Cancel.";
+        }
+        return String.format("Keybind: %s", module.keyCode==0 ? "None" : GLFW.glfwGetKeyName(module.keyCode, GLFW.glfwGetKeyScancode(module.keyCode)));
     }
 }

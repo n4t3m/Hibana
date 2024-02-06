@@ -9,6 +9,7 @@ import com.natem135.hibana.modules.render.FullBrightModule;
 import com.natem135.hibana.modules.render.XrayModule;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import org.lwjgl.glfw.GLFW;
 
 import java.util.Arrays;
 import java.util.List;
@@ -66,4 +67,15 @@ public class ModuleManager {
         }
         //  mods.stream().filter(module -> module.module_enabled).forEach(module -> );
     }
+
+    public static void onKeyPress(int key, int action) {
+        if(action == GLFW.GLFW_PRESS) {
+            for(Module m : mods) {
+                if(m.keyCode == key) {
+                    m.toggle();
+                }
+            }
+        }
+    }
+
 }

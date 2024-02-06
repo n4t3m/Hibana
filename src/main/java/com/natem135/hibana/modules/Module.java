@@ -13,6 +13,8 @@ public abstract class Module {
     public final String categoryName;
     public boolean module_enabled = false;
 
+    public int keyCode;
+
     public Module(String module_name, String category_name, int code) {
         keybind = new KeyBinding(
                 "key.hibana." + this.getClass().getSimpleName().toLowerCase(Locale.ROOT) + "_toggle",
@@ -21,6 +23,7 @@ public abstract class Module {
                 );
         this.module_name = module_name;
         this.categoryName = category_name;
+        this.keyCode = 0;
     }
 
     public void tick(MinecraftClient client) {

@@ -68,14 +68,17 @@ public class OptionButton {
     }
 
     public boolean isHovered(double mouseX, double mouseY) {
-        return false;
+        return mouseX > this.getFillX1() && mouseX < this.getFillX2() && mouseY > this.getFillY1() && mouseY < this.getFillY2();
     }
 
     public void mouseClicked(double mouseX, double mouseY, int button) {
-
     }
 
     public void mouseReleased(double mouseX, double mouseY, int button) {
+
+    }
+
+    public void keyPressed(int keyCode) {
 
     }
 }

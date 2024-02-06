@@ -3,17 +3,20 @@
 	"package": "com.natem135.hibana.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin",
-		"MinecraftClientMixin",
-		"BlockMixin",
-		"SimpleOptionMixin",
 		"AbstractBlockMixin",
+		"BlockMixin",
 		"ClientConnectionMixin",
 		"ClientPlayNetworkHandlerMixin",
+		"ExampleMixin",
 		"FishingBobberEntityMixin",
-		"KeyBindingMixin"
+		"KeyBindingMixin",
+		"MinecraftClientMixin",
+		"SimpleOptionMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
-	}
+	},
+	"client": [
+		"KeyboardMixin"
+	]
 }

@@ -48,7 +48,6 @@ public class ClickGUI extends Screen {
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        Hibana.LOGGER.info("mouseClicked in ClickGUI Class");
         for (int i = categoryFrames.size() - 1; i >= 0; i--) {
             CategoryFrame frame = categoryFrames.get(i);
             frame.mouseClicked(mouseX, mouseY, button);
@@ -77,4 +76,11 @@ public class ClickGUI extends Screen {
         dragLock.set(false);
     }
 
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        for(CategoryFrame frame : categoryFrames) {
+            frame.keyPressed(keyCode);
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
 }

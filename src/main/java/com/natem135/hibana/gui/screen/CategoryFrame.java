@@ -93,6 +93,13 @@ public class CategoryFrame {
         }
     }
 
+    public void keyPressed(int keyCode) {
+        for(ModuleButton module : buttons) {
+            module.keyPressed(keyCode);
+        }
+    }
+
+
 
 }
 
