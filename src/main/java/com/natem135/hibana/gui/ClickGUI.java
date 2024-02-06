@@ -9,6 +9,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 import org.lwjgl.glfw.GLFW;
+import org.spongepowered.asm.mixin.injection.At;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -23,6 +24,7 @@ public class ClickGUI extends Screen {
 
     private final AtomicBoolean rebindLock;
 
+    private final AtomicBoolean shouldClose;
 
     public ClickGUI() {
         super(Text.of("Click GUI"));
@@ -39,6 +41,7 @@ public class ClickGUI extends Screen {
         }
         dragLock = new AtomicBoolean(false);
         rebindLock = new AtomicBoolean(false);
+        shouldClose = new AtomicBoolean(true);
     }
 
     // DrawScreen equivalent
@@ -83,11 +86,18 @@ public class ClickGUI extends Screen {
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (keyCode == GLFW.GLFW_KEY_RIGHT_SHIFT || keyCode==GLFW.GLFW_KEY_ESCAPE) {
+        Hibana.LOGGER.info(String.format("code %d scancode %d modifiers %d Should Close %b", keyCode, scanCode, modifiers, shouldClose.get()));
+        if ((keyCode == GLFW.GLFW_KEY_RIGHT_SHIFT || keyCode==GLFW.GLFW_KEY_ESCAPE)) {
             if(this.isSomeModuleRebinding()) {
                 this.cancelRebind();
             }
-            this.close();
+            if(this.shouldClose.get()) {
+                Hibana.LOGGER.info("Closing!");
+                this.close();
+            }
+            if(!this.shouldClose.get()) {
+                this.shouldClose.set(true);
+            }
             return true;
         }
         for(CategoryFrame frame : categoryFrames) {
@@ -118,5 +128,9 @@ public class ClickGUI extends Screen {
             }
         }
         )));
+    }
+
+    public void preventImmediateClose() {
+        this.shouldClose.set(false);
     }
 }

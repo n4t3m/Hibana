@@ -69,15 +69,4 @@ public class ModuleManager {
         //  mods.stream().filter(module -> module.module_enabled).forEach(module -> );
     }
 
-    public static void onKeyPress(int key, int action) {
-        MinecraftClient client = MinecraftClient.getInstance();
-        if(action == GLFW.GLFW_PRESS && !ClickGUI.CLICK_GUI_INSTANCE.isSomeModuleRebinding() && client.currentScreen==null) {
-            for(Module m : mods) {
-                if(m.keyCode == key) {
-                    m.toggle();
-                }
-            }
-        }
-    }
-
 }
