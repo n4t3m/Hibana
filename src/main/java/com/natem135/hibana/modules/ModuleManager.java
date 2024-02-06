@@ -1,5 +1,6 @@
 package com.natem135.hibana.modules;
 
+import com.natem135.hibana.gui.ClickGUI;
 import com.natem135.hibana.modules.misc.AutoFishEntityModule;
 import com.natem135.hibana.modules.misc.AutoFishSoundModule;
 import com.natem135.hibana.modules.misc.AutoRespawnModule;
@@ -69,7 +70,8 @@ public class ModuleManager {
     }
 
     public static void onKeyPress(int key, int action) {
-        if(action == GLFW.GLFW_PRESS) {
+        MinecraftClient client = MinecraftClient.getInstance();
+        if(action == GLFW.GLFW_PRESS && !ClickGUI.CLICK_GUI_INSTANCE.isSomeModuleRebinding() && client.currentScreen==null) {
             for(Module m : mods) {
                 if(m.keyCode == key) {
                     m.toggle();

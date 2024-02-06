@@ -28,13 +28,14 @@ public class KeybindOptionButton extends OptionButton {
     @Override
     public void mouseClicked(double mouseX, double mouseY, int button) {
         super.mouseClicked(mouseX, mouseY, button);
-        if(parent.getOptionsExtended() && isHovered(mouseX, mouseY)) {
+        if(button==0 && parent.getOptionsExtended() && isHovered(mouseX, mouseY)) {
             Hibana.LOGGER.info("Clicked on Binding Button");
             if(ClickGUI.CLICK_GUI_INSTANCE.requestRebindLock()) {
                 isRebinding = true;
             } else if (isRebinding) {
                 this.endRebindProcess();
             }
+            Hibana.LOGGER.info(String.format("isRebinding %b %s", isRebinding, module.module_name));
         }
     }
 

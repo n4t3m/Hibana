@@ -1,13 +1,9 @@
 package com.natem135.hibana.modules;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.option.KeyBinding;
 import static com.natem135.hibana.Hibana.LOGGER;
 
-import java.util.Locale;
-
 public abstract class Module {
-    public KeyBinding keybind;
     public final String module_name;
 
     public final String categoryName;
@@ -16,21 +12,12 @@ public abstract class Module {
     public int keyCode;
 
     public Module(String module_name, String category_name, int code) {
-        keybind = new KeyBinding(
-                "key.hibana." + this.getClass().getSimpleName().toLowerCase(Locale.ROOT) + "_toggle",
-                code,
-                "category.hibana"
-                );
         this.module_name = module_name;
         this.categoryName = category_name;
-        this.keyCode = 0;
+        this.keyCode = code;
     }
 
     public void tick(MinecraftClient client) {
-        if (keybind.wasPressed()) {
-            LOGGER.info("Keybind was pressed!");
-            this.toggle();
-        }
         if (module_enabled) {
             this.onTick();
         }

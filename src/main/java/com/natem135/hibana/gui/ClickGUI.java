@@ -84,7 +84,7 @@ public class ClickGUI extends Screen {
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (keyCode == GLFW.GLFW_KEY_RIGHT_SHIFT || keyCode==GLFW.GLFW_KEY_ESCAPE) {
-            if(rebindLock.get()) {
+            if(this.isSomeModuleRebinding()) {
                 this.cancelRebind();
             }
             this.close();
@@ -102,6 +102,10 @@ public class ClickGUI extends Screen {
 
     public void releaseRebindLock() {
         rebindLock.set(false);
+    }
+
+    public boolean isSomeModuleRebinding() {
+        return rebindLock.get();
     }
 
     public void cancelRebind() {
