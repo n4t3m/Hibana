@@ -1,5 +1,6 @@
 package com.natem135.hibana.modules;
 
+import com.natem135.hibana.gui.ClickGUI;
 import com.natem135.hibana.modules.misc.AutoFishEntityModule;
 import com.natem135.hibana.modules.misc.AutoFishSoundModule;
 import com.natem135.hibana.modules.misc.AutoRespawnModule;
@@ -9,6 +10,7 @@ import com.natem135.hibana.modules.render.FullBrightModule;
 import com.natem135.hibana.modules.render.XrayModule;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import org.lwjgl.glfw.GLFW;
 
 import java.util.Arrays;
 import java.util.List;
@@ -66,4 +68,5 @@ public class ModuleManager {
         }
         //  mods.stream().filter(module -> module.module_enabled).forEach(module -> );
     }
+
 }

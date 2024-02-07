@@ -27,7 +27,7 @@ public class ModuleButton {
         this.optionsExpanded = false;
 
         options.add(new KeybindOptionButton(this, this.module, 0));
-        // options.add(new KeybindOptionButton(this, this.module, 1));
+        options.add(new KeybindOptionButton(this, this.module, 1));
     }
 
     public int getBorderX() {
@@ -98,6 +98,12 @@ public class ModuleButton {
 
     public boolean getOptionsExtended() {
         return this.optionsExpanded;
+    }
+
+    public void keyPressed(int keyCode) {
+        for(OptionButton option : options) {
+            option.keyPressed(keyCode);
+        }
     }
 
 }

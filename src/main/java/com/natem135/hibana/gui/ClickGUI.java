@@ -2,11 +2,13 @@ package com.natem135.hibana.gui;
 
 import com.natem135.hibana.Hibana;
 import com.natem135.hibana.gui.screen.CategoryFrame;
+import com.natem135.hibana.gui.screen.KeybindOptionButton;
 import com.natem135.hibana.modules.Module;
 import com.natem135.hibana.modules.ModuleManager;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
+import org.lwjgl.glfw.GLFW;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -19,6 +21,9 @@ public class ClickGUI extends Screen {
 
     private final AtomicBoolean dragLock;
 
+    private final AtomicBoolean rebindLock;
+
+    private final AtomicBoolean shouldClose;
 
     public ClickGUI() {
         super(Text.of("Click GUI"));
@@ -34,6 +39,8 @@ public class ClickGUI extends Screen {
                     _index++;
         }
         dragLock = new AtomicBoolean(false);
+        rebindLock = new AtomicBoolean(false);
+        shouldClose = new AtomicBoolean(true);
     }
 
     // DrawScreen equivalent
@@ -48,7 +55,6 @@ public class ClickGUI extends Screen {
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        Hibana.LOGGER.info("mouseClicked in ClickGUI Class");
         for (int i = categoryFrames.size() - 1; i >= 0; i--) {
             CategoryFrame frame = categoryFrames.get(i);
             frame.mouseClicked(mouseX, mouseY, button);
@@ -77,4 +83,52 @@ public class ClickGUI extends Screen {
         dragLock.set(false);
     }
 
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if ((keyCode == GLFW.GLFW_KEY_RIGHT_SHIFT || keyCode==GLFW.GLFW_KEY_ESCAPE)) {
+            if(this.isSomeModuleRebinding()) {
+                this.cancelRebind();
+            }
+            if(this.shouldClose.get()) {
+                Hibana.LOGGER.info("Closing!");
+                this.close();
+            }
+            if(!this.shouldClose.get()) {
+                this.shouldClose.set(true);
+            }
+            return true;
+        }
+        for(CategoryFrame frame : categoryFrames) {
+            frame.keyPressed(keyCode);
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    public boolean requestRebindLock() {
+        return rebindLock.compareAndSet(false, true);
+    }
+
+    public void releaseRebindLock() {
+        rebindLock.set(false);
+    }
+
+    public boolean isSomeModuleRebinding() {
+        return rebindLock.get();
+    }
+
+    public void cancelRebind() {
+        Hibana.LOGGER.info("Cancelling Rebind Process");
+        categoryFrames.forEach(category -> category.buttons.forEach(moduleButton -> moduleButton.options.forEach(option -> {
+            if(option instanceof KeybindOptionButton button) {
+                if(button.isBeingRebinded()) {
+                    button.endRebindProcess();
+                }
+            }
+        }
+        )));
+    }
+
+    public void preventImmediateClose() {
+        this.shouldClose.set(false);
+    }
 }
