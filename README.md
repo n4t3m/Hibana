@@ -18,12 +18,11 @@ Current Supported MC Version: `1.20.4`
 - AutoFish (Entity-Based)
 - Specialized Voice Acting for a few modules (featuring people from UCR!)
 - In-Game Mod Menu
+- Kill Aura
 
 ## Planned Features (I think these would be fun to implement):
 - AutoFarm
-- AutoFish (Entity-Based)
 - Discord RPC
-- Kill Aura
 - Scaffold
 - Various ESP mods (chest, entity, etc)
 - ClickGUI Improvements
