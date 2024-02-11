@@ -5,6 +5,7 @@ import com.natem135.hibana.modules.combat.KillAuraModule;
 import com.natem135.hibana.modules.misc.AutoFishEntityModule;
 import com.natem135.hibana.modules.misc.AutoFishSoundModule;
 import com.natem135.hibana.modules.misc.AutoRespawnModule;
+import com.natem135.hibana.modules.misc.PlayerWatchNotificationModule;
 import com.natem135.hibana.modules.movement.BoatFlyModule;
 import com.natem135.hibana.modules.movement.PlayerFlyModule;
 import com.natem135.hibana.modules.render.FullBrightModule;
@@ -25,6 +26,8 @@ public class ModuleManager {
     public  static final AutoFishEntityModule autoFishEntityModule = new AutoFishEntityModule();
     public static final AutoAimModule autoAimModule = new AutoAimModule();
     public  static  final KillAuraModule killAuraModule = new KillAuraModule();
+    public  static  final PlayerWatchNotificationModule playerWatchNotificationModule = new PlayerWatchNotificationModule();
+
     private static final String[] colorCodeMap = {
             "§c", // Red
             "§6", // Gold (Orange Substitute)
@@ -43,7 +46,8 @@ public class ModuleManager {
             autoRespawnModule,
             autoFishEntityModule,
             autoAimModule,
-            killAuraModule
+            killAuraModule,
+            playerWatchNotificationModule
     );
 
     public static String generateRainbowString(String input) {
