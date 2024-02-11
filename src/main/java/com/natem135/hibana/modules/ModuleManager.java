@@ -1,6 +1,6 @@
 package com.natem135.hibana.modules;
 
-import com.natem135.hibana.gui.ClickGUI;
+import com.natem135.hibana.modules.combat.AutoAimModule;
 import com.natem135.hibana.modules.misc.AutoFishEntityModule;
 import com.natem135.hibana.modules.misc.AutoFishSoundModule;
 import com.natem135.hibana.modules.misc.AutoRespawnModule;
@@ -10,7 +10,6 @@ import com.natem135.hibana.modules.render.FullBrightModule;
 import com.natem135.hibana.modules.render.XrayModule;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
-import org.lwjgl.glfw.GLFW;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +22,7 @@ public class ModuleManager {
     public static final AutoFishSoundModule autoFishSoundModule = new AutoFishSoundModule();
     public  static final AutoRespawnModule autoRespawnModule = new AutoRespawnModule();
     public  static final AutoFishEntityModule autoFishEntityModule = new AutoFishEntityModule();
+    public static final AutoAimModule autoAimModule = new AutoAimModule();
     private static final String[] colorCodeMap = {
             "§c", // Red
             "§6", // Gold (Orange Substitute)
@@ -39,7 +39,8 @@ public class ModuleManager {
             fullBrightModule,
             autoFishSoundModule,
             autoRespawnModule,
-            autoFishEntityModule
+            autoFishEntityModule,
+            autoAimModule
     );
 
     public static String generateRainbowString(String input) {
