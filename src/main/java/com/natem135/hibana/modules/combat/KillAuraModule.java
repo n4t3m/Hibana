@@ -16,7 +16,7 @@ public class KillAuraModule extends Module {
     private static final MinecraftClient client = MinecraftClient.getInstance();
 
     public KillAuraModule() {
-        super("Kill Aura","combat", GLFW.GLFW_KEY_K);
+        super("Kill Aura","combat", GLFW.GLFW_KEY_R);
     }
 
     public void onTick() {

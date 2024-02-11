@@ -13,7 +13,7 @@ public class AutoAimModule extends Module {
     private static final MinecraftClient client = MinecraftClient.getInstance();
 
     public AutoAimModule() {
-        super("AutoAim","combat", GLFW.GLFW_KEY_R);
+        super("AutoAim","combat", GLFW.GLFW_KEY_K);
     }
 
     public void onTick() {
