@@ -4,8 +4,6 @@ import com.natem135.hibana.Hibana;
 import com.natem135.hibana.modules.Module;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
@@ -46,8 +44,7 @@ public class PlayerWatchNotificationModule extends Module {
                 Vec3d vec3d = e.getRotationVec(1.0f).normalize();
                 Vec3d vec3d2 = new Vec3d(client.player.getX() - e.getX() , client.player.getEyeY() - e.getEyeY(), client.player.getZ() - e.getZ());
                 double dot_product = vec3d.dotProduct(vec3d2 = vec3d2.normalize());
-                // Hibana.LOGGER.info(String.format("Debug DP %.2f Plaer %s", dot_product, e.getName()));
-                if (dot_product > .6 &&  !playersBeingWatchedBy.contains(e.getName().toString()) && client.player.canSee(e)) {
+                if (dot_product > .7 &&  !playersBeingWatchedBy.contains(e.getName().toString()) && client.player.canSee(e)) {
                     Hibana.LOGGER.info(String.format("%s can see me.", e.getName().toString().substring(8, e.getName().toString().length()-1)));
                 }
             }
