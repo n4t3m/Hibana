@@ -1,22 +1,22 @@
 {
-	"required": true,
-	"package": "com.natem135.hibana.mixin",
-	"compatibilityLevel": "JAVA_17",
-	"mixins": [
-		"AbstractBlockMixin",
-		"BlockMixin",
-		"ClientConnectionMixin",
-		"ClientPlayNetworkHandlerMixin",
-		"ExampleMixin",
-		"FishingBobberEntityMixin",
-		"KeyBindingMixin",
-		"MinecraftClientMixin",
-		"SimpleOptionMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"client": [
-		"KeyboardMixin"
+  "required": true,
+  "package": "com.n4t3m.hibana.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "AbstractBlockMixin",
+    "BlockMixin",
+    "ClientConnectionMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "ExampleMixin",
+    "FishingBobberEntityMixin",
+    "KeyBindingMixin",
+    "MinecraftClientMixin",
+    "SimpleOptionMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "KeyboardMixin"
 	]
 }

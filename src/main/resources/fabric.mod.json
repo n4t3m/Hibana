@@ -16,13 +16,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.natem135.hibana.Hibana"
+          "com.n4t3m.hibana.Hibana"
 		],
 		"client": [
-			"com.natem135.hibana.HibanaClient"
+          "com.n4t3m.hibana.HibanaClient"
 		],
 		"fabric-datagen": [
-			"com.natem135.hibana.HibanaDataGenerator"
+          "com.n4t3m.hibana.HibanaDataGenerator"
 		]
 	},
 	"mixins": [
