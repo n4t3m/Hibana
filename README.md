@@ -18,6 +18,7 @@ Current Supported MC Version: `1.20.4`
 - AutoFish (Entity-Based)
 - Specialized Voice Acting for a few modules (featuring people from UCR!)
 - In-Game Mod Menu
+- Streamer Mode (Hide Username from Chat)
 
 ## Planned Features (I think these would be fun to implement):
 - AutoFarm
