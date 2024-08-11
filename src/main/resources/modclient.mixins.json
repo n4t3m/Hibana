@@ -11,7 +11,8 @@
     "FishingBobberEntityMixin",
     "KeyBindingMixin",
     "MinecraftClientMixin",
-    "SimpleOptionMixin"
+    "SimpleOptionMixin",
+    "ChatHudMixin"
   ],
   "injectors": {
     "defaultRequire": 1

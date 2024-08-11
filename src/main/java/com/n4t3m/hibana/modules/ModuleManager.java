@@ -3,6 +3,7 @@ package com.n4t3m.hibana.modules;
 import com.n4t3m.hibana.modules.misc.AutoFishEntityModule;
 import com.n4t3m.hibana.modules.misc.AutoFishSoundModule;
 import com.n4t3m.hibana.modules.misc.AutoRespawnModule;
+import com.n4t3m.hibana.modules.misc.StreamerModeModule;
 import com.n4t3m.hibana.modules.movement.BoatFlyModule;
 import com.n4t3m.hibana.modules.movement.PlayerFlyModule;
 import com.n4t3m.hibana.modules.render.FullBrightModule;
@@ -25,6 +26,7 @@ public class ModuleManager {
     public  static final AutoFishEntityModule autoFishEntityModule = new AutoFishEntityModule();
     public static final AutoAimModule autoAimModule = new AutoAimModule();
     public  static  final KillAuraModule killAuraModule = new KillAuraModule();
+    public static final StreamerModeModule streamerModeModule = new StreamerModeModule();
     private static final String[] colorCodeMap = {
             "§c", // Red
             "§6", // Gold (Orange Substitute)
@@ -43,7 +45,8 @@ public class ModuleManager {
             autoRespawnModule,
             autoFishEntityModule,
             autoAimModule,
-            killAuraModule
+            killAuraModule,
+            streamerModeModule
     );
 
     public static String generateRainbowString(String input) {
